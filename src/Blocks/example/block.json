@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"name": "yard-gutenberg/example",
 	"version": "0.1.0",
-	"title": "Yard Gutenberg",
+	"title": "Example",
 	"category": "widgets",
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",

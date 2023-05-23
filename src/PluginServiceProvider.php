@@ -9,6 +9,7 @@ class PluginServiceProvider
         $this->bootProviders();
 
         add_action('init', [$this, 'registerBlocks']);
+        add_action('admin_enqueue_scripts', [$this, 'enqueueAdminAssets']);
     }
 
     public function bootProviders()
@@ -43,5 +44,24 @@ class PluginServiceProvider
     public function renderDynamicBlock($attributes)
     {
         return '<h3>asdf</h3>';
+    }
+
+    public function enqueueAdminAssets()
+    {
+        // Enqueue admin.js and style-admin.css build files located in PLUGIN PATH -> build/admin.js
+        // and PLUGIN PATH -> build/admin.css
+        wp_enqueue_script(
+            'yard-gutenberg-admin',
+            plugins_url('build/admin.js', __DIR__),
+            [],
+            time()
+        );
+
+        wp_enqueue_style(
+            'yard-gutenberg-admin',
+            plugins_url('build/style-admin.css', __DIR__),
+            [],
+            time()
+        );
     }
 }

@@ -29,11 +29,11 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default edit = () => {
+export default function edit() {
 	return (
 		<p { ...useBlockProps() }>
 			{ __(
-				'Yard Gutenberg – hello from the editor!',
+				'Example – hello from the editor!',
 				'yard-gutenberg'
 			) }
 		</p>
