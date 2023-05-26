@@ -1,0 +1,1 @@
+{"version":3,"file":"Blocks/collapse-item/index.css","mappings":";;;AACC;EACC;AAAF,C","sources":["webpack://yard-gutenberg/./src/Blocks/collapse-item/editor.scss"],"sourcesContent":[".wp-block-yard-gutenberg-collapse-item {\n\t&__header {\n\t\tdisplay: flex;\n\t}\n}\n"],"names":[],"sourceRoot":""}
