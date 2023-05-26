@@ -39,6 +39,7 @@ class PluginServiceProvider
      */
     public function registerBlocks()
     {
+        register_block_type(dirname(__DIR__, 1) . '/build/Blocks/icon');
         register_block_type(dirname(__DIR__, 1) . '/build/Blocks/example');
         register_block_type(dirname(__DIR__, 1) . '/build/Blocks/example-dynamic', [
             'render_callback' => [$this, 'renderDynamicBlock'],
