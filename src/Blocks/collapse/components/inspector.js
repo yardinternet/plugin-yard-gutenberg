@@ -16,6 +16,11 @@ const Inspector = ( props ) => {
 
 	const { updateBlockAttributes } = useDispatch( 'core/block-editor' );
 
+	/**
+	 * Handles the change event for heading level.
+	 *
+	 * @param {string} value - The new value for heading level.
+	 */
 	const onChangeHeadingLevel = ( value ) => {
 		setAttributes( { headingLevel: value } );
 
@@ -25,6 +30,11 @@ const Inspector = ( props ) => {
 		);
 	};
 
+	/**
+	 * Handles the change event for structured data.
+	 *
+	 * @param {boolean} value - The new value for structured data.
+	 */
 	const onChangeHasStructuredData = ( value ) => {
 		setAttributes( { hasStructuredData: value } );
 

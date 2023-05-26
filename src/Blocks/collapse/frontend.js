@@ -9,9 +9,7 @@ const collapses = document.querySelectorAll(
 
 collapses?.forEach( ( collapse ) => {
 	// Get setting if collapse is shown as a accordion
-	const showMultiple = collapse.dataset.multiple
-		? collapse.dataset.multiple !== 'true'
-		: true;
+	const showMultiple = collapse.dataset.multiple !== 'true';
 
 	const openOnInit = [];
 	const collapseItems = collapse.querySelectorAll(

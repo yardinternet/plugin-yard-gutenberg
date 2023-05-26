@@ -20,7 +20,7 @@ const edit = ( props ) => {
 		[
 			'core/paragraph',
 			{
-				placeholder: 'Vul hier de uitklap content in',
+				placeholder: __( 'Vul hier de uitklap inhoud in' ),
 			},
 		],
 	];
@@ -44,7 +44,7 @@ const edit = ( props ) => {
 						className="wp-block-yard-gutenberg-collapse-item__header-toggle-button"
 						onClick={ () => setIsOpen( ( current ) => ! current ) }
 						variant="primary"
-						aria-label="Toggle uitklap"
+						aria-label={ __( 'Toggle uitklap' ) }
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
