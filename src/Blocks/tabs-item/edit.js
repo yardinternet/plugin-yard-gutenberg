@@ -25,19 +25,34 @@ const edit = ( props ) => {
 		],
 	];
 
-	const { hasSelectedInnerBlock } = useSelect( ( select ) => ( {
-		/**
-		 * Checks if one of the block’s inner blocks is selected
-		 *
-		 * @see https://developer.wordpress.org/block-editor/reference-guides/data/data-core-block-editor/#hasselectedinnerblock
-		 */
-		hasSelectedInnerBlock: select(
-			'core/block-editor'
-		).hasSelectedInnerBlock( clientId, true ),
-	} ) );
+	const { hasSelectedInnerBlock, parentAttributes } = useSelect(
+		( select ) => ( {
+			/**
+			 * Checks if one of the block’s inner blocks is selected
+			 *
+			 * @see https://developer.wordpress.org/block-editor/reference-guides/data/data-core-block-editor/#hasselectedinnerblock
+			 */
+			hasSelectedInnerBlock: select(
+				'core/block-editor'
+			).hasSelectedInnerBlock( clientId, true ),
+
+			/**
+			 * Get parent block attributes
+			 *
+			 * @see https://developer.wordpress.org/block-editor/reference-guides/data/data-core-block-editor/#getblockattributes
+			 * @see https://developer.wordpress.org/block-editor/reference-guides/data/data-core-block-editor/#getblockparents
+			 */
+			parentAttributes: select( 'core/block-editor' ).getBlockAttributes(
+				select( 'core/block-editor' ).getBlockParents( clientId )[ 0 ]
+			),
+		} )
+	);
 
 	useEffect( () => {
-		setAttributes( { id: clientId } );
+		setAttributes( {
+			id: clientId,
+			headingLevel: parentAttributes.headingLevel ?? 'h3',
+		} );
 	}, [] );
 
 	return (
