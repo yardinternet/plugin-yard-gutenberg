@@ -3,7 +3,8 @@
  */
 import { useBlockProps, PlainText, InnerBlocks } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
+import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -13,7 +14,7 @@ import Inspector from './components/Inspector';
 import './editor.scss';
 
 const edit = ( props ) => {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, clientId } = props;
 	const { headingText } = attributes;
 
 	const TEMPLATE = [
@@ -26,6 +27,24 @@ const edit = ( props ) => {
 	];
 
 	const [ isOpen, setIsOpen ] = useState( false );
+
+	const { parentAttributes } = useSelect( ( select ) => ( {
+		/**
+		 * Get parent block attributes
+		 *
+		 * @see https://developer.wordpress.org/block-editor/reference-guides/data/data-core-block-editor/#getblockattributes
+		 * @see https://developer.wordpress.org/block-editor/reference-guides/data/data-core-block-editor/#getblockparents
+		 */
+		parentAttributes: select( 'core/block-editor' ).getBlockAttributes(
+			select( 'core/block-editor' ).getBlockParents( clientId )[ 0 ]
+		),
+	} ) );
+
+	useEffect( () => {
+		setAttributes( {
+			headingLevel: parentAttributes.headingLevel ?? 'h3',
+		} );
+	}, [] );
 
 	return (
 		<>
