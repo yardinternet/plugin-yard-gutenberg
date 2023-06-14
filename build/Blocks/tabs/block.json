@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "yard-gutenberg/tabs",
+  "version": "0.1.0",
+  "title": "Tabbladen",
+  "category": "theme",
+  "icon": "category",
+  "description": "Groepeer gemakkelijk content in verschillende tabbladen.",
+  "attributes": {
+    "currentTab": {
+      "type": "string"
+    },
+    "defaultTab": {
+      "type": "string"
+    },
+    "defaultTabEnabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "headingLevel": {
+      "type": "string",
+      "default": "h3"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "tabs",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./frontend.js",
+  "style": "file:./style-index.css"
+}

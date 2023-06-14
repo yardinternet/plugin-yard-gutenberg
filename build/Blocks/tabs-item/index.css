@@ -30,5 +30,19 @@
   margin-right: 0;
   margin-left: 0;
 }
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/Blocks/tabs-item/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-yard-gutenberg-tabs > .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block-yard-gutenberg-tabs-item__heading {
+  display: flex;
+  align-items: center;
+}
+.wp-block-yard-gutenberg-tabs > .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block-yard-gutenberg-tabs-item__heading-input {
+  width: auto;
+}
+.wp-block-yard-gutenberg-tabs > .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block-yard-gutenberg-tabs-item__panel {
+  order: 100;
+  width: 100%;
+}
 
 /*# sourceMappingURL=index.css.map*/

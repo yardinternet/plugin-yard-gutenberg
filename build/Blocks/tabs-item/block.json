@@ -1,17 +1,13 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "yard-gutenberg/collapse-item",
+  "name": "yard-gutenberg/tabs-item",
   "version": "0.1.0",
-  "title": "Uitklap item",
+  "title": "Tabblad",
   "category": "theme",
-  "icon": "arrow-down-alt2",
-  "description": "Uitklapbaar component.",
+  "icon": "category",
+  "description": "Tabblad item.",
   "attributes": {
-    "hasStructuredData": {
-      "type": "boolean",
-      "default": false
-    },
     "headingLevel": {
       "type": "string",
       "default": "h3"
@@ -26,19 +22,19 @@
     "iconAltText": {
       "type": "string"
     },
-    "isOpen": {
-      "type": "boolean",
-      "default": false
+    "id": {
+      "type": "string"
     }
   },
   "parent": [
-    "yard-gutenberg/collapse"
+    "yard-gutenberg/tabs"
   ],
   "supports": {
+    "anchor": true,
     "html": false,
     "reusable": false
   },
-  "textdomain": "collapse-item",
+  "textdomain": "tab-item",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"
