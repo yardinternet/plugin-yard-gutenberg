@@ -1,15 +1,15 @@
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/Blocks/tabs/editor.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************/
-.wp-block-yard-gutenberg-tabs {
+.wp-block-yard-tabs {
   display: block;
 }
-.wp-block-yard-gutenberg-tabs > .block-editor-inner-blocks > .block-editor-block-list__layout {
+.wp-block-yard-tabs > .block-editor-inner-blocks > .block-editor-block-list__layout {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
-.wp-block-yard-gutenberg-tabs .block-list-appender {
+.wp-block-yard-tabs .block-list-appender {
   order: 99;
   position: static;
 }

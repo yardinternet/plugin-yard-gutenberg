@@ -153,15 +153,15 @@ const Edit = props => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_inspector__WEBPACK_IMPORTED_MODULE_7__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), {
     "data-open": isOpen
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "wp-block-yard-gutenberg-collapse-item__header"
+    className: "wp-block-yard-collapse-item__header"
   }, icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_6__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
-    className: "wp-block-yard-gutenberg-collapse-item__header-input",
+    className: "wp-block-yard-collapse-item__header-input",
     onChange: value => setAttributes({
       headingText: value
     }),
     value: headingText
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    className: "wp-block-yard-gutenberg-collapse-item__header-toggle-button",
+    className: "wp-block-yard-collapse-item__header-toggle-button",
     onClick: () => setIsOpen(current => !current),
     variant: "primary",
     "aria-label": (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)('Toggle uitklap')
@@ -171,12 +171,12 @@ const Edit = props => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("path", {
     d: "M239 401c9.4 9.4 24.6 9.4 33.9 0L465 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-175 175L81 175c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9L239 401z"
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "wp-block-yard-gutenberg-collapse-item__panel",
+    className: "wp-block-yard-collapse-item__panel",
     style: {
       display: `${isOpen ? 'block' : 'none'}`
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "wp-block-yard-gutenberg-collapse-item__panel-content"
+    className: "wp-block-yard-collapse-item__panel-content"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     template: TEMPLATE
   })))));
@@ -257,7 +257,7 @@ const Save = props => {
   } = attributes;
   const HeadingWithLevel = headingLevel;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: 'wp-block-yard-gutenberg-collapse-item | ac'
+    className: 'wp-block-yard-collapse-item | ac'
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, blockProps, {
     "data-open": isOpen,
@@ -265,18 +265,18 @@ const Save = props => {
     itemProp: hasStructuredData ? 'mainEntity' : null,
     itemType: hasStructuredData ? 'https://schema.org/Question' : null
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(HeadingWithLevel, {
-    className: "wp-block-yard-gutenberg-collapse-item__header | ac-header"
+    className: "wp-block-yard-collapse-item__header | ac-header"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("button", {
     type: "button",
-    className: "wp-block-yard-gutenberg-collapse-item__header-button | ac-trigger",
+    className: "wp-block-yard-collapse-item__header-button | ac-trigger",
     itemProp: hasStructuredData ? 'name' : null
   }, icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_3__["default"], props), headingText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "wp-block-yard-gutenberg-collapse-item__panel | ac-panel",
+    className: "wp-block-yard-collapse-item__panel | ac-panel",
     itemScope: hasStructuredData,
     itemProp: hasStructuredData ? 'acceptedAnswer' : null,
     itemType: hasStructuredData ? 'https://schema.org/Answer' : null
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "wp-block-yard-gutenberg-collapse-item__panel-content",
+    className: "wp-block-yard-collapse-item__panel-content",
     itemProp: hasStructuredData ? 'text' : null
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null))));
 };

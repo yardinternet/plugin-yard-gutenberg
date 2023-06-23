@@ -16,7 +16,7 @@ const Save = ( props ) => {
 		<li { ...useBlockProps.save() }>
 			<Icon { ...props } />
 			<RichText.Content
-				className="wp-block-yard-gutenberg-iconlist-item__text"
+				className="wp-block-yard-iconlist-item__text"
 				tagName="span"
 				value={ listText }
 			/>
