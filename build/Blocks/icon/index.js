@@ -215,11 +215,10 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
-const IconPickerControl = _ref => {
-  let {
-    onChange,
-    icon
-  } = _ref;
+const IconPickerControl = ({
+  onChange,
+  icon
+}) => {
   const [isOpen, setOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const [searchInput, setSearchInput] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   const [searchResults, setSearchResults] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
