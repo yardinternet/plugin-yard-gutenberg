@@ -300,11 +300,10 @@ const transforms = {
     type: 'block',
     blocks: ['yard-gutenberg/collapse'],
     transform: (attributes, innerBlocks) => {
-      const transformedInnerBlocks = innerBlocks?.map(_ref => {
-        let {
-          attributes: childAttributes,
-          innerBlocks: childInnerBlocks
-        } = _ref;
+      const transformedInnerBlocks = innerBlocks?.map(({
+        attributes: childAttributes,
+        innerBlocks: childInnerBlocks
+      }) => {
         return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('yard-gutenberg/collapse-item', {
           headingLevel: childAttributes.headingLevel,
           headingText: childAttributes.headingText,

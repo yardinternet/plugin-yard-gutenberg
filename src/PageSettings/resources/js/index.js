@@ -8,7 +8,7 @@ import { createRoot } from '@wordpress/element';
  */
 import App from './App';
 
-const domNode = document.getElementById( 'yard-gutenberg-settings' );
+const domNode = document.getElementById( 'yard-gutenberg-page-settings' );
 
 if ( domNode ) {
 	const root = createRoot( domNode );

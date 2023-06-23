@@ -2155,10 +2155,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./src/Settings/resources/js/App.js":
-/*!******************************************!*\
-  !*** ./src/Settings/resources/js/App.js ***!
-  \******************************************/
+/***/ "./src/PageSettings/resources/js/App.js":
+/*!**********************************************!*\
+  !*** ./src/PageSettings/resources/js/App.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2174,7 +2174,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _hooks_useWordpress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hooks/useWordpress */ "./src/Settings/resources/js/hooks/useWordpress.js");
+/* harmony import */ var _hooks_useWordpress__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hooks/useWordpress */ "./src/PageSettings/resources/js/hooks/useWordpress.js");
 
 /**
  * External dependencies
@@ -2214,16 +2214,15 @@ const App = () => {
     getBlocks();
   }, []);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "yard-gutenberg-settings"
+    className: "yard-gutenberg-page-settings"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "yard-gutenberg-settings-header"
+    className: "yard-gutenberg-page-settings-header"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Yard Gutenberg'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Panel, {
-    className: "yard-gutenberg-settings-body"
+    className: "yard-gutenberg-page-settings-body"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Blokinstellingen')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Uitklap'),
-    help: '',
     checked: true,
     onChange: () => false,
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Zet de uitklap aan of uit.')
@@ -2233,10 +2232,10 @@ const App = () => {
 
 /***/ }),
 
-/***/ "./src/Settings/resources/js/hooks/useWordpress.js":
-/*!*********************************************************!*\
-  !*** ./src/Settings/resources/js/hooks/useWordpress.js ***!
-  \*********************************************************/
+/***/ "./src/PageSettings/resources/js/hooks/useWordpress.js":
+/*!*************************************************************!*\
+  !*** ./src/PageSettings/resources/js/hooks/useWordpress.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2257,9 +2256,7 @@ function useWordpress() {
     }
   });
   const coreApiVersion = 'v2';
-  const core = async function (resourcePath, method) {
-    let params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-    let data = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+  const core = async (resourcePath, method, params = null, data = null) => {
     const url = `/wp/${coreApiVersion}/${resourcePath.startsWith('/') ? resourcePath.slice(1) : resourcePath}`;
     const response = await http.request({
       method,
@@ -2269,9 +2266,7 @@ function useWordpress() {
     });
     return response.data;
   };
-  const vendor = async function (vendorApiPrefix, vendorApiVersion, resourcePath, method) {
-    let params = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-    let data = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
+  const vendor = async (vendorApiPrefix, vendorApiVersion, resourcePath, method, params = null, data = null) => {
     const url = `/${vendorApiPrefix}/${vendorApiVersion}/${resourcePath.startsWith('/') ? resourcePath.slice(1) : resourcePath}`;
     const response = await http.request({
       method,
@@ -2292,17 +2287,17 @@ function useWordpress() {
 
 /***/ }),
 
-/***/ "./src/Settings/resources/js/index.js":
-/*!********************************************!*\
-  !*** ./src/Settings/resources/js/index.js ***!
-  \********************************************/
+/***/ "./src/PageSettings/resources/js/index.js":
+/*!************************************************!*\
+  !*** ./src/PageSettings/resources/js/index.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App */ "./src/Settings/resources/js/App.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App */ "./src/PageSettings/resources/js/App.js");
 
 /**
  * WordPress dependencies
@@ -2313,7 +2308,7 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
-const domNode = document.getElementById('yard-gutenberg-settings');
+const domNode = document.getElementById('yard-gutenberg-page-settings');
 if (domNode) {
   const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(domNode);
   root.render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_App__WEBPACK_IMPORTED_MODULE_1__["default"], null));
@@ -2321,10 +2316,10 @@ if (domNode) {
 
 /***/ }),
 
-/***/ "./src/Settings/resources/scss/style.scss":
-/*!************************************************!*\
-  !*** ./src/Settings/resources/scss/style.scss ***!
-  \************************************************/
+/***/ "./src/PageSettings/resources/scss/style.scss":
+/*!****************************************************!*\
+  !*** ./src/PageSettings/resources/scss/style.scss ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2488,8 +2483,8 @@ module.exports = window["wp"]["i18n"];
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"settings": 0,
-/******/ 			"./style-settings": 0
+/******/ 			"pageSettings": 0,
+/******/ 			"./style-pageSettings": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -2539,10 +2534,10 @@ module.exports = window["wp"]["i18n"];
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["./style-settings"], () => (__webpack_require__("./src/Settings/resources/js/index.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-settings"], () => (__webpack_require__("./src/Settings/resources/scss/style.scss")))
+/******/ 	__webpack_require__.O(undefined, ["./style-pageSettings"], () => (__webpack_require__("./src/PageSettings/resources/js/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-pageSettings"], () => (__webpack_require__("./src/PageSettings/resources/scss/style.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=settings.js.map
+//# sourceMappingURL=pageSettings.js.map

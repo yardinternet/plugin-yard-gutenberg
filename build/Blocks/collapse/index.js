@@ -233,12 +233,11 @@ const transforms = {
     type: 'block',
     blocks: ['yard-gutenberg/tabs'],
     transform: (attributes, innerBlocks) => {
-      const transformedInnerBlocks = innerBlocks?.map(_ref => {
-        let {
-          attributes: childAttributes,
-          clientId: childClientId,
-          innerBlocks: childInnerBlocks
-        } = _ref;
+      const transformedInnerBlocks = innerBlocks?.map(({
+        attributes: childAttributes,
+        clientId: childClientId,
+        innerBlocks: childInnerBlocks
+      }) => {
         return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.createBlock)('yard-gutenberg/tabs-item', {
           headingLevel: childAttributes.headingLevel,
           headingText: childAttributes.headingText,
