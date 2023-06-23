@@ -103,12 +103,12 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 const init = () => {
-  const collapses = document.querySelectorAll('.wp-block-yard-gutenberg-collapse');
+  const collapses = document.querySelectorAll('.wp-block-yard-collapse');
   collapses?.forEach(collapse => {
     // Get setting if collapse is shown as a accordion
     const showMultiple = collapse.dataset.multiple !== 'true';
     const openOnInit = [];
-    const collapseItems = collapse.querySelectorAll('.wp-block-yard-gutenberg-collapse-item');
+    const collapseItems = collapse.querySelectorAll('.wp-block-yard-collapse-item');
 
     // Get all indexes of collapse items to be open on init
     collapseItems.forEach((item, index) => {

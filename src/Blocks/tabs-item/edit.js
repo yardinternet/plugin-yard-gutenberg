@@ -111,12 +111,11 @@ const Edit = ( props ) => {
 	return (
 		<>
 			<Inspector { ...props } />
-			<div className="wp-block-yard-gutenberg-tabs-item__heading">
+			<div className="wp-block-yard-tabs-item__heading">
 				{ icon && <Icon { ...props } /> }
 				<PlainText
 					{ ...useBlockProps( {
-						className:
-							'wp-block-yard-gutenberg-tabs-item__heading-input',
+						className: 'wp-block-yard-tabs-item__heading-input',
 					} ) }
 					onChange={ ( value ) =>
 						setAttributes( { headingText: value } )
@@ -126,7 +125,7 @@ const Edit = ( props ) => {
 			</div>
 
 			<div
-				className="wp-block-yard-gutenberg-tabs-item__panel"
+				className="wp-block-yard-tabs-item__panel"
 				style={ {
 					display: `${ isOpen ? 'block' : 'none' }`,
 				} }

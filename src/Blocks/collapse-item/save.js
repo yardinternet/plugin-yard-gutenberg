@@ -15,7 +15,7 @@ const Save = ( props ) => {
 	const HeadingWithLevel = headingLevel;
 
 	const blockProps = useBlockProps.save( {
-		className: 'wp-block-yard-gutenberg-collapse-item | ac',
+		className: 'wp-block-yard-collapse-item | ac',
 	} );
 
 	return (
@@ -28,10 +28,10 @@ const Save = ( props ) => {
 				hasStructuredData ? 'https://schema.org/Question' : null
 			}
 		>
-			<HeadingWithLevel className="wp-block-yard-gutenberg-collapse-item__header | ac-header">
+			<HeadingWithLevel className="wp-block-yard-collapse-item__header | ac-header">
 				<button
 					type="button"
-					className="wp-block-yard-gutenberg-collapse-item__header-button | ac-trigger"
+					className="wp-block-yard-collapse-item__header-button | ac-trigger"
 					itemProp={ hasStructuredData ? 'name' : null }
 				>
 					{ icon && <Icon { ...props } /> }
@@ -39,7 +39,7 @@ const Save = ( props ) => {
 				</button>
 			</HeadingWithLevel>
 			<div
-				className="wp-block-yard-gutenberg-collapse-item__panel | ac-panel"
+				className="wp-block-yard-collapse-item__panel | ac-panel"
 				itemScope={ hasStructuredData }
 				itemProp={ hasStructuredData ? 'acceptedAnswer' : null }
 				itemType={
@@ -47,7 +47,7 @@ const Save = ( props ) => {
 				}
 			>
 				<div
-					className="wp-block-yard-gutenberg-collapse-item__panel-content"
+					className="wp-block-yard-collapse-item__panel-content"
 					itemProp={ hasStructuredData ? 'text' : null }
 				>
 					<InnerBlocks.Content />

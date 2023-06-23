@@ -17,12 +17,12 @@ const Save = ( props ) => {
 		<>
 			<HeadingWithLevel
 				{ ...useBlockProps.save( {
-					className: 'wp-block-yard-gutenberg-tabs-item__heading',
+					className: 'wp-block-yard-tabs-item__heading',
 				} ) }
 			>
 				<button
 					id={ `tabs-item-button-${ id }` }
-					className="wp-block-yard-gutenberg-tabs-item__button"
+					className="wp-block-yard-tabs-item__button"
 					aria-controls={ `tabs-item-panel-${ id }` }
 					aria-selected="false"
 				>
@@ -33,7 +33,7 @@ const Save = ( props ) => {
 
 			<div
 				{ ...useBlockProps.save( {
-					className: 'wp-block-yard-gutenberg-tabs-item__panel',
+					className: 'wp-block-yard-tabs-item__panel',
 				} ) }
 				id={ `tabs-item-panel-${ id }` }
 				aria-hidden="true"

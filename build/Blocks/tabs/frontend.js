@@ -7,11 +7,11 @@ var __webpack_exports__ = {};
  * Get all tabs block and add all functions
  */
 const init = () => {
-  const tabsBlocks = document.querySelectorAll('.wp-block-yard-gutenberg-tabs');
+  const tabsBlocks = document.querySelectorAll('.wp-block-yard-tabs');
   tabsBlocks?.forEach(tabs => {
     const defaultTabId = tabs.dataset.defaultTab;
-    const tabsButtons = tabs.querySelectorAll('.wp-block-yard-gutenberg-tabs-item__button');
-    const tabsPanels = tabs.querySelectorAll('.wp-block-yard-gutenberg-tabs-item__panel');
+    const tabsButtons = tabs.querySelectorAll('.wp-block-yard-tabs-item__button');
+    const tabsPanels = tabs.querySelectorAll('.wp-block-yard-tabs-item__panel');
 
     // Reset all tab and set active tab based on id
     resetAllTabs(tabsButtons, tabsPanels);
@@ -100,7 +100,7 @@ const setActiveTabOnHash = (tabs, tabsButtons, tabsPanels) => {
   const heading = tabs.querySelector(window.location.hash);
   if (heading) {
     // Get corresponding tab button
-    const btn = heading.querySelector('.wp-block-yard-gutenberg-tabs-item__button');
+    const btn = heading.querySelector('.wp-block-yard-tabs-item__button');
 
     // Reset all tab and set active tab based on btn
     resetAllTabs(tabsButtons, tabsPanels);

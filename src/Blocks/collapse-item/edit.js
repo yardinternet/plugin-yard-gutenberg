@@ -50,17 +50,17 @@ const Edit = ( props ) => {
 			<Inspector { ...props } />
 
 			<div { ...useBlockProps() } data-open={ isOpen }>
-				<div className="wp-block-yard-gutenberg-collapse-item__header">
+				<div className="wp-block-yard-collapse-item__header">
 					{ icon && <Icon { ...props } /> }
 					<PlainText
-						className="wp-block-yard-gutenberg-collapse-item__header-input"
+						className="wp-block-yard-collapse-item__header-input"
 						onChange={ ( value ) =>
 							setAttributes( { headingText: value } )
 						}
 						value={ headingText }
 					/>
 					<Button
-						className="wp-block-yard-gutenberg-collapse-item__header-toggle-button"
+						className="wp-block-yard-collapse-item__header-toggle-button"
 						onClick={ () => setIsOpen( ( current ) => ! current ) }
 						variant="primary"
 						aria-label={ __( 'Toggle uitklap' ) }
@@ -74,10 +74,10 @@ const Edit = ( props ) => {
 					</Button>
 				</div>
 				<div
-					className="wp-block-yard-gutenberg-collapse-item__panel"
+					className="wp-block-yard-collapse-item__panel"
 					style={ { display: `${ isOpen ? 'block' : 'none' }` } }
 				>
-					<div className="wp-block-yard-gutenberg-collapse-item__panel-content">
+					<div className="wp-block-yard-collapse-item__panel-content">
 						<InnerBlocks template={ TEMPLATE } />
 					</div>
 				</div>

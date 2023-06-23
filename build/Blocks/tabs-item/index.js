@@ -199,16 +199,16 @@ const Edit = props => {
     return id;
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_inspector__WEBPACK_IMPORTED_MODULE_6__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "wp-block-yard-gutenberg-tabs-item__heading"
+    className: "wp-block-yard-tabs-item__heading"
   }, icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_5__["default"], props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: 'wp-block-yard-gutenberg-tabs-item__heading-input'
+    className: 'wp-block-yard-tabs-item__heading-input'
   }), {
     onChange: value => setAttributes({
       headingText: value
     }),
     value: headingText
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "wp-block-yard-gutenberg-tabs-item__panel",
+    className: "wp-block-yard-tabs-item__panel",
     style: {
       display: `${isOpen ? 'block' : 'none'}`
     }
@@ -292,14 +292,14 @@ const Save = props => {
   } = attributes;
   const HeadingWithLevel = headingLevel;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(HeadingWithLevel, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: 'wp-block-yard-gutenberg-tabs-item__heading'
+    className: 'wp-block-yard-tabs-item__heading'
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("button", {
     id: `tabs-item-button-${id}`,
-    className: "wp-block-yard-gutenberg-tabs-item__button",
+    className: "wp-block-yard-tabs-item__button",
     "aria-controls": `tabs-item-panel-${id}`,
     "aria-selected": "false"
   }, icon && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_3__["default"], props), headingText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: 'wp-block-yard-gutenberg-tabs-item__panel'
+    className: 'wp-block-yard-tabs-item__panel'
   }), {
     id: `tabs-item-panel-${id}`,
     "aria-hidden": "true",

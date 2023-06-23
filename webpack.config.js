@@ -16,6 +16,7 @@ module.exports = {
 	entry: {
 		...getWebpackEntryPoints(),
 		// Add additional entry points here.
+		editorSettings: [ './src/EditorSettings/resources/js/index.js' ],
 		menu: [ './src/Menu/resources/scss/style.scss' ],
 		settings: [
 			'./src/Settings/resources/js/index.js',

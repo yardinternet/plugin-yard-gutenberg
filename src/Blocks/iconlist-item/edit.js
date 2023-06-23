@@ -21,7 +21,7 @@ const Edit = ( props ) => {
 			<li { ...useBlockProps() }>
 				<Icon { ...props } />
 				<RichText
-					className="wp-block-yard-gutenberg-iconlist-item__text"
+					className="wp-block-yard-iconlist-item__text"
 					onChange={ ( value ) =>
 						setAttributes( { listText: value } )
 					}
