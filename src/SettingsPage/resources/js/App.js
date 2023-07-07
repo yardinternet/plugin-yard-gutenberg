@@ -46,12 +46,12 @@ const App = () => {
 	}, [] );
 
 	return (
-		<div className="yard-gutenberg-page-settings">
-			<div className="yard-gutenberg-page-settings-header">
+		<div className="yard-gutenberg-settings-page">
+			<div className="yard-gutenberg-settings-page-header">
 				<h1>{ __( 'Yard Gutenberg' ) }</h1>
 			</div>
 
-			<Panel className="yard-gutenberg-page-settings-body">
+			<Panel className="yard-gutenberg-settings-page-body">
 				<PanelBody title={ __( 'Blokinstellingen' ) }>
 					<PanelRow>
 						<ToggleControl

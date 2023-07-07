@@ -18,9 +18,9 @@ module.exports = {
 		// Add additional entry points here.
 		editorSettings: [ './src/EditorSettings/resources/js/index.js' ],
 		menu: [ './src/Menu/resources/scss/style.scss' ],
-		pageSettings: [
-			'./src/PageSettings/resources/js/index.js',
-			'./src/PageSettings/resources/scss/style.scss',
+		settingsPage: [
+			'./src/SettingsPage/resources/js/index.js',
+			'./src/SettingsPage/resources/scss/style.scss',
 		],
 	},
 };

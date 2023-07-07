@@ -12,9 +12,7 @@ import { addFilter } from '@wordpress/hooks';
  * @return {string} - New className
  */
 const setBlockClassName = ( className, blockName ) => {
-	return blockName.includes( 'yard-gutenberg' )
-		? `${ className }`.replace( 'wp-block-yard-gutenberg', 'wp-block-yard' )
-		: className;
+	return className.replace( 'wp-block-yard-gutenberg', 'wp-block-yard' );
 };
 
 addFilter(

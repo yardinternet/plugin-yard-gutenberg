@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Yard\Gutenberg\PageSettings;
+namespace Yard\Gutenberg\SettingsPage;
 
-class PageSettingsManager
+class SettingsPageManager
 {
     public function render()
     {
-        echo '<div id="yard-gutenberg-page-settings"></div>';
+        echo '<div id="yard-gutenberg-settings-page"></div>';
     }
 
     public function enqueueAssets()
@@ -16,21 +16,21 @@ class PageSettingsManager
         \wp_enqueue_style('wp-components');
 
         \wp_enqueue_script(
-            'yard-gutenberg-page-settings-js',
-            YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/pageSettings.js',
+            'yard-gutenberg-settings-page-js',
+            YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/settings-page.js',
             ['wp-element', 'wp-components', 'wp-blocks'], // TODO: Get the dependencies from settings.asset.php
             YARD_GUTENBERG_PLUGIN_VERSION,
             true
         );
 
         \wp_enqueue_style(
-            'yard-gutenberg-page-settings-css',
-            YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-pageSettings.css',
+            'yard-gutenberg-settings-page-css',
+            YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-settings-page.css',
             [],
             YARD_GUTENBERG_PLUGIN_VERSION
         );
 
-        \wp_localize_script('yard-gutenberg-page-settings-js', 'wpApiSettings', [
+        \wp_localize_script('yard-gutenberg-settings-page-js', 'wpApiSettings', [
             'root'  => esc_url_raw(\rest_url()),
             'nonce' => \wp_create_nonce('wp_rest'),
         ]);
