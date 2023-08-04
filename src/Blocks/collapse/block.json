@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Uitklap",
 	"category": "yard-gutenberg",
-	"icon": "arrow-down-alt2",
 	"description": "Voeg uitklapbare blokken toe om inhoud in en uit te kunnen vouwen.",
 	"attributes": {
 		"hasStructuredData": {
