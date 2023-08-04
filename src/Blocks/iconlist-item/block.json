@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Iconenlijst item",
 	"category": "yard-gutenberg",
-	"icon": "list-view",
 	"description": "Een enkele iconenlijst item.",
 	"attributes": {
 		"icon": {

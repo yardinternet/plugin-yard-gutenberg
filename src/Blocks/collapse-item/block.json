@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Uitklap item",
 	"category": "yard-gutenberg",
-	"icon": "arrow-down-alt2",
 	"description": "Uitklapbaar component.",
 	"attributes": {
 		"hasStructuredData": {
