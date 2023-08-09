@@ -10,13 +10,13 @@ import { useEffect, useState } from '@wordpress/element';
  */
 import { searchPosts, fetchPostById } from '../../utils/api';
 
-const StickyPostComboboxControl = ( props ) => {
+const PostParentComboboxControl = ( props ) => {
 	const { query, setParameter, attributes } = props;
-	const { hasStickyPost } = attributes;
+	const { postParentOption } = attributes;
 	const [ options, setOptions ] = useState( [] );
 
 	useEffect( () => {
-		if ( query.post__in ) {
+		if ( query.post_parent && query.post_parent !== 0 ) {
 			getSelectedPost();
 		}
 	}, [] );
@@ -29,7 +29,7 @@ const StickyPostComboboxControl = ( props ) => {
 	};
 
 	const getSelectedPost = async () => {
-		const post = await fetchPostById( query.post__in );
+		const post = await fetchPostById( query.post_parent );
 
 		setOptions( mapOptions( post ) );
 	};
@@ -47,15 +47,15 @@ const StickyPostComboboxControl = ( props ) => {
 	};
 
 	return (
-		hasStickyPost && (
+		postParentOption === 'specific-parent' && (
 			<ComboboxControl
 				label={ __( 'Selecteer item' ) }
 				hideLabelFromVision={ true }
-				value={ query.post__in }
+				value={ query.post_parent }
 				options={ options }
-				onChange={ ( value ) => setParameter( 'post__in', value ) }
+				onChange={ ( value ) => setParameter( 'post_parent', value ) }
 				help={ __(
-					'Selecteer het item wat als eerste in de lijst getoond moet worden'
+					'Selecteer het hoofditem waar de subitems van getoond moeten worden.'
 				) }
 				onFilterValueChange={ onValueChange }
 			/>
@@ -63,4 +63,4 @@ const StickyPostComboboxControl = ( props ) => {
 	);
 };
 
-export default StickyPostComboboxControl;
+export default PostParentComboboxControl;
