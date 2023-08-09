@@ -18,6 +18,8 @@ import NumberOfItemsRangeControl from './settings-controls/number-of-items-range
 import OffsetRangeControl from './settings-controls/offset-range-control';
 import OrderSelectControl from './settings-controls/order-select-control';
 import OrderbySelectControl from './settings-controls/orderby-select-control';
+import PostParentComboboxControl from './filters-controls/post-parent-combobox-control';
+import PostParentRadioControl from './filters-controls/post-parent-radio-control';
 import PosttypeSelectControl from './settings-controls/posttype-select-control';
 import StickyPostComboboxControl from './filters-controls/sticky-post-combobox-control';
 import StickyPostToggleControl from './filters-controls/sticky-post-toggle-control';
@@ -27,7 +29,8 @@ import useQueryReducer from '../hooks/useQueryReducer';
 const Inspector = ( props ) => {
 	const { setAttributes, attributes } = props;
 	const { query } = attributes;
-	const { queryState, setParameter } = useQueryReducer( query );
+	const { queryState, setParameter, removeParameter } =
+		useQueryReducer( query );
 
 	useEffect( () => {
 		setAttributes( { query: queryState } );
@@ -60,11 +63,9 @@ const Inspector = ( props ) => {
 			<PanelBody title={ __( 'Filters' ) } initialOpen={ false }>
 				{ /* Handmatige selectie */ }
 				{ /* Posts uitsluiten */ }
-				{ /* Taxonomy filteren */ }
-				{ /* Taxonomy uitsluiten */ }
-				{ /* Post parent */ }
+				{ /* Huidige post uitsluiten */ }
 				<StickyPostToggleControl
-					setParameter={ setParameter }
+					removeParameter={ removeParameter }
 					{ ...props }
 				/>
 				<StickyPostComboboxControl
@@ -72,6 +73,20 @@ const Inspector = ( props ) => {
 					setParameter={ setParameter }
 					{ ...props }
 				/>
+				<PostParentRadioControl
+					setParameter={ setParameter }
+					removeParameter={ removeParameter }
+					{ ...props }
+				/>
+				<PostParentComboboxControl
+					query={ queryState }
+					setParameter={ setParameter }
+					{ ...props }
+				/>
+			</PanelBody>
+			<PanelBody title={ __( 'Taxonomy filters' ) } initialOpen={ false }>
+				{ /* Taxonomy filteren */ }
+				{ /* Taxonomy uitsluiten */ }
 			</PanelBody>
 			<PanelBody title={ __( 'Weergave' ) } initialOpen={ false }>
 				<TemplateSelectControl { ...props } />

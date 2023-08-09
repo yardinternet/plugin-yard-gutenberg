@@ -21,6 +21,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"postParentOption": {
+			"type": "string",
+			"default": "any"
+		},
 		"template": {
 			"type": "string",
 			"default": "default"
