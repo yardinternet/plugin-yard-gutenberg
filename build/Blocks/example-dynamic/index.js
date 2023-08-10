@@ -1,1 +1,0 @@
-!function(){"use strict";var e=window.wp.blocks,o=window.wp.element,r=window.wp.i18n,i=window.wp.blockEditor,n=JSON.parse('{"u2":"yard-gutenberg/example-dynamic"}');(0,e.registerBlockType)(n.u2,{edit:()=>(0,o.createElement)("p",{...(0,i.useBlockProps)()},(0,r.__)("Example Dynamic – hello from the editor!","yard-gutenberg"))})}();
