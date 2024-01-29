@@ -2,7 +2,7 @@ module.exports = {
 	...require( '@wordpress/prettier-config' ),
 	overrides: [
 		{
-			files: [ '*.scss', '*.css' ],
+			files: [ '*.scss', '*.css', '*.js' ],
 			options: {
 				useTabs: true,
 				printWidth: 80,
@@ -10,7 +10,7 @@ module.exports = {
 				trailingComma: 'es5',
 				bracketSpacing: true,
 				parenSpacing: true,
-				jsxBracketSameLine: false,
+				bracketSameLine: false,
 				semi: true,
 				arrowParens: 'always',
 			},

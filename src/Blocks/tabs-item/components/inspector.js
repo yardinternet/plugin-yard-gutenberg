@@ -3,25 +3,22 @@
  */
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
-import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
-import IconPickerControl from '@components/icon-picker-control';
+import { IconPickerControlInspector } from '@components/icon-picker-control';
 
 const Inspector = ( props ) => {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, enableIcon } = props;
 	const { icon, iconAltText } = attributes;
-
-	const enableIcon = applyFilters( 'yard-gutenberg.enable-tabs-icon', false );
 
 	return (
 		<InspectorControls>
 			{ enableIcon && (
 				<PanelBody title={ __( 'Icoon instellingen' ) }>
-					<IconPickerControl
+					<IconPickerControlInspector
 						icon={ icon }
 						onChange={ ( result ) => {
 							if ( result !== undefined ) {
@@ -30,6 +27,8 @@ const Inspector = ( props ) => {
 								} );
 							}
 						} }
+						displayDeleteIcon={ true }
+						handleRemove={ () => setAttributes( { icon: '' } ) }
 					/>
 					<TextControl
 						label={ __( 'Alternatieve tekst' ) }
