@@ -19,5 +19,6 @@ addFilter('yard-gutenberg.fontawesome-family-styles', 'yard-gutenberg', () => [
   { family: 'sharp', style: 'solid' },
   { family: 'sharp', style: 'regular' },
   { family: 'sharp', style: 'light' },
+  { family: 'sharp', style: 'thin' },
 ]);
 ```

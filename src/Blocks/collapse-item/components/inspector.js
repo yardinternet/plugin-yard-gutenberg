@@ -3,22 +3,16 @@
  */
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
-import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
-import IconPickerControl from '@components/icon-picker-control';
+import { IconPickerControlInspector } from '@components/icon-picker-control';
 
 const Inspector = ( props ) => {
-	const { attributes, setAttributes } = props;
+	const { attributes, setAttributes, enableIcon } = props;
 	const { icon, iconAltText, isOpen } = attributes;
-
-	const enableIcon = applyFilters(
-		'yard-gutenberg.enable-collapse-icon',
-		true
-	);
 
 	return (
 		<InspectorControls>
@@ -31,7 +25,7 @@ const Inspector = ( props ) => {
 			</PanelBody>
 			{ enableIcon && (
 				<PanelBody title={ __( 'Icoon instellingen' ) }>
-					<IconPickerControl
+					<IconPickerControlInspector
 						icon={ icon }
 						onChange={ ( result ) => {
 							if ( result !== undefined ) {
@@ -40,6 +34,8 @@ const Inspector = ( props ) => {
 								} );
 							}
 						} }
+						displayDeleteIcon={ true }
+						handleRemove={ () => setAttributes( { icon: '' } ) }
 					/>
 					<TextControl
 						label={ __( 'Alternatieve tekst' ) }

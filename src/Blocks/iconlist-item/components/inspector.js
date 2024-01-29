@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import IconPickerControl from '@components/icon-picker-control';
+import { IconPickerControlInspector } from '@components/icon-picker-control';
 
 const Inspector = ( props ) => {
 	const { setAttributes, attributes } = props;
@@ -17,7 +17,7 @@ const Inspector = ( props ) => {
 	return (
 		<InspectorControls>
 			<PanelBody title={ __( 'Icoon instellingen' ) }>
-				<IconPickerControl
+				<IconPickerControlInspector
 					icon={ icon }
 					onChange={ ( result ) => {
 						if ( result !== undefined ) {

@@ -4,14 +4,14 @@
 	},
 	"[css]": {
 		"editor.codeActionsOnSave": {
-			"source.fixAll.prettier": true,
-			"source.fixAll.stylelint": true
+			"source.fixAll.prettier": "explicit",
+			"source.fixAll.stylelint": "explicit"
 		},
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[javascript]": {
 		"editor.codeActionsOnSave": {
-			"source.fixAll.prettier": true
+			"source.fixAll.prettier": "explicit"
 		},
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnPaste": false

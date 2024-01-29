@@ -7,16 +7,27 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
+import { IconPickerControlToolbar } from '@components/icon-picker-control';
 import Icon from '@components/icon';
 import Inspector from './components/inspector';
 import './editor.scss';
 
 const Edit = ( props ) => {
 	const { attributes, setAttributes } = props;
-	const { listText } = attributes;
+	const { icon, listText } = attributes;
 
 	return (
 		<>
+			<IconPickerControlToolbar
+				icon={ icon }
+				onChange={ ( result ) => {
+					if ( result !== undefined ) {
+						setAttributes( {
+							icon: result,
+						} );
+					}
+				} }
+			/>
 			<Inspector { ...props } />
 			<li { ...useBlockProps() }>
 				<Icon { ...props } />

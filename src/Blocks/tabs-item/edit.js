@@ -4,11 +4,13 @@
 import { useBlockProps, PlainText, InnerBlocks } from '@wordpress/block-editor';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';
+import { applyFilters } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
+import { IconPickerControlToolbar } from '@components/icon-picker-control';
 import Icon from '@components/icon';
 import Inspector from './components/inspector';
 import './editor.scss';
@@ -25,6 +27,8 @@ const Edit = ( props ) => {
 			},
 		],
 	];
+
+	const enableIcon = applyFilters( 'yard-gutenberg.enable-tabs-icon', false );
 
 	const [ isOpen, setIsOpen ] = useState( false );
 
@@ -110,7 +114,21 @@ const Edit = ( props ) => {
 
 	return (
 		<>
-			<Inspector { ...props } />
+			{ enableIcon && (
+				<IconPickerControlToolbar
+					icon={ icon }
+					onChange={ ( result ) => {
+						if ( result !== undefined ) {
+							setAttributes( {
+								icon: result,
+							} );
+						}
+					} }
+				/>
+			) }
+
+			<Inspector { ...props } enableIcon={ enableIcon } />
+
 			<div className="wp-block-yard-tabs-item__heading">
 				{ icon && <Icon { ...props } /> }
 				<PlainText
