@@ -36,7 +36,7 @@ const init = () => {
  * Remove all active states from tabs buttons and panels
  *
  * @param {HTMLElement[]} tabsButtons - All buttons of current tabs
- * @param {HTMLElement[]} tabsPanels - All panels of current tabs
+ * @param {HTMLElement[]} tabsPanels  - All panels of current tabs
  */
 const resetAllTabs = ( tabsButtons, tabsPanels ) => {
 	tabsButtons?.forEach( ( btn ) => {
@@ -54,7 +54,7 @@ const resetAllTabs = ( tabsButtons, tabsPanels ) => {
  * Set active tab
  *
  * @param {HTMLElement} tabs - Current tabs
- * @param {HTMLElement} btn - Current tab button
+ * @param {HTMLElement} btn  - Current tab button
  */
 const setActiveTab = ( tabs, btn ) => {
 	// Activate tab button
@@ -76,9 +76,9 @@ const setActiveTab = ( tabs, btn ) => {
 /**
  * Set default tab based on id
  *
- * @param {HTMLElement} tabs - Current tabs
- * @param {string} defaultTabId - Id for the default tab
- * @param {HTMLElement[]} tabsButtons - All buttons of current tabs
+ * @param {HTMLElement}   tabs         - Current tabs
+ * @param {string}        defaultTabId - Id for the default tab
+ * @param {HTMLElement[]} tabsButtons  - All buttons of current tabs
  */
 const setDefaultTab = ( tabs, defaultTabId, tabsButtons ) => {
 	let defaultButton;
@@ -98,9 +98,9 @@ const setDefaultTab = ( tabs, defaultTabId, tabsButtons ) => {
 /**
  * Set active tab basesd on url hash
  *
- * @param {HTMLElement} tabs - Current tabs
+ * @param {HTMLElement}   tabs        - Current tabs
  * @param {HTMLElement[]} tabsButtons - All buttons of current tabs
- * @param {HTMLElement[]} tabsPanels - All panels of current tabs
+ * @param {HTMLElement[]} tabsPanels  - All panels of current tabs
  */
 const setActiveTabOnHash = ( tabs, tabsButtons, tabsPanels ) => {
 	// Get heading based on de url hash
