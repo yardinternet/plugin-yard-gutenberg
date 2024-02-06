@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "yard-gutenberg/query",
   "version": "0.1.0",
   "title": "Berichtenlijst",
@@ -78,6 +78,6 @@
   },
   "textdomain": "yard-gutenberg",
   "editorScript": "file:./index.js",
-  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
   "viewScript": "file:./frontend.js"
 }
