@@ -1,0 +1,11 @@
+$block: 'wp-block-yard-slider';
+
+.#{$block} {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+
+	.components-button-group {
+		display: flex;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "yard/slider",
+	"version": "0.1.0",
+	"title": "Slider",
+	"category": "yard",
+	"description": "Voeg slider toe.",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		},
+		"activeSlide": {
+			"type": "string",
+			"default": null
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"textdomain": "yard",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}
