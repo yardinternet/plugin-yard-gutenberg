@@ -1,0 +1,9 @@
+$block: 'wp-block-yard-slide';
+
+.#{$block} {
+	padding: 1rem;
+
+	&.is-hidden {
+		display: none;
+	}
+}
