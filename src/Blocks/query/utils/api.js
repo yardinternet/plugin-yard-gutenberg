@@ -40,3 +40,10 @@ export const fetchPostById = ( id = '' ) => {
 export const fetchTaxonomiesByPostType = ( type = '' ) => {
 	return apiFetch( { path: `wp/v2/taxonomies?type=${ type }&per_page=100` } );
 };
+
+/**
+ * Fetch terms by taxonomy
+ */
+export const fetchTermsByTaxonomy = ( taxonomy = '' ) => {
+	return apiFetch( { path: `wp/v2/${ taxonomy }` } );
+};

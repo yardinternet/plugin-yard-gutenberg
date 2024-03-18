@@ -9,6 +9,7 @@ import ServerSideRender from '@wordpress/server-side-render';
  * Internal dependencies
  */
 import Inspector from './components/inspector';
+import './editor.scss';
 
 const Edit = ( props ) => {
 	const { attributes } = props;

@@ -21,3 +21,15 @@ export const mapPostTypesToOptions = ( postTypes = [] ) => {
 		value: item.slug,
 	} ) );
 };
+
+/**
+ * Map terms array to an array to use for options in a select control
+ *
+ * @param {Array} terms - Terms to map
+ */
+export const mapTermsToOptions = ( terms = [] ) => {
+	return terms.map( ( term ) => ( {
+		label: term.name.replace( '&#39;', "'" ),
+		value: term.slug,
+	} ) );
+};
