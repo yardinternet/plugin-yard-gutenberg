@@ -9,7 +9,7 @@ import { useSelect, useDispatch } from '@wordpress/data';
 /**
  * Internal dependencies
  */
-import { useCurrentBlock } from '@hooks';
+import { useCurrentBlock } from '@yardinternet/gutenberg-hooks';
 import Track from './components/track';
 import './editor.scss';
 

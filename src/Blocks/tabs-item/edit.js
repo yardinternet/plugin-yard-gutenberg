@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { IconPickerControlToolbar } from '@components/icon-picker-control';
 import Icon from '@components/icon';
-import { useCurrentBlock, useParentBlock } from '@hooks';
+import { useCurrentBlock, useParentBlock } from '@yardinternet/gutenberg-hooks';
 import Inspector from './components/inspector';
 import './editor.scss';
 
