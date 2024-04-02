@@ -17,7 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
+/* harmony import */ var _yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @yardinternet/gutenberg-components */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/index.js");
 
 /**
  * WordPress dependencies
@@ -41,7 +41,7 @@ const Inspector = props => {
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Kies een icoon')
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__.IconPickerControlInspector, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_4__.IconPickerControlInspector, {
     icon: icon,
     onChange: result => {
       if (result !== undefined) {
@@ -77,9 +77,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
-/* harmony import */ var _components_icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @components/icon */ "./src/EditorComponents/icon/index.js");
-/* harmony import */ var _components_inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/inspector */ "./src/Blocks/icon/components/inspector.js");
+/* harmony import */ var _yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @yardinternet/gutenberg-components */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/index.js");
+/* harmony import */ var _components_inspector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/inspector */ "./src/Blocks/icon/components/inspector.js");
 
 /**
  * WordPress dependencies
@@ -102,7 +101,7 @@ const Edit = props => {
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_2__.IconPickerControlToolbar, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_2__.IconPickerControlToolbar, {
     icon: icon,
     onChange: result => {
       if (result !== undefined) {
@@ -111,9 +110,9 @@ const Edit = props => {
         });
       }
     }
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_inspector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_inspector__WEBPACK_IMPORTED_MODULE_3__["default"], {
     ...props
-  }), icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
     ...props
   }));
 };
@@ -130,7 +129,7 @@ const Edit = props => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_block_icon_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @components/block-icon-color */ "./src/EditorComponents/block-icon-color/index.js");
+/* harmony import */ var _yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @yardinternet/gutenberg-components */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/index.js");
 
 /**
  * Internal dependencies
@@ -144,7 +143,9 @@ const icon = {
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     d: "M473.7 4.1C493.5 .2 512 15.3 512 35.5V168h-.2c.1 1.3 .2 2.7 .2 4c0 28.7-28.7 52-64 52s-64-23.3-64-52s28.7-52 64-52c11.7 0 22.6 2.5 32 7V35.5L352 61.1V200h-.2c.1 1.3 .2 2.7 .2 4c0 28.7-28.7 52-64 52s-64-23.3-64-52s28.7-52 64-52c11.7 0 22.6 2.5 32 7V61.1c0-15.3 10.8-28.4 25.7-31.4l128-25.6zM480 172c0-3.1-1.5-7.5-6.9-11.9c-5.5-4.5-14.3-8.1-25.1-8.1s-19.5 3.6-25.1 8.1c-5.5 4.4-6.9 8.8-6.9 11.9s1.5 7.5 6.9 11.9c5.5 4.5 14.3 8.1 25.1 8.1s19.5-3.6 25.1-8.1c5.5-4.4 6.9-8.8 6.9-11.9zM320 204c0-3.1-1.5-7.5-6.9-11.9c-5.5-4.5-14.3-8.1-25.1-8.1s-19.5 3.6-25.1 8.1c-5.5 4.4-6.9 8.8-6.9 11.9s1.5 7.5 6.9 11.9c5.5 4.5 14.3 8.1 25.1 8.1s19.5-3.6 25.1-8.1c5.5-4.4 6.9-8.8 6.9-11.9zM105.4 54.6l-6-6c-9-9-21.8-13.1-34.4-11c-19 3.2-33 19.6-33 38.9v2.9c0 11.9 4.9 23.2 13.6 31.4L128 187.7l82.4-76.9c8.7-8.1 13.6-19.5 13.6-31.4V76.5c0-19.3-13.9-35.8-33-38.9c-12.6-2.1-25.4 2-34.4 11l-6 6L128 77.3 105.4 54.6zM59.7 6C82.5 2.3 105.7 9.7 122 26l0 0 6 6 6-6C150.3 9.7 173.5 2.3 196.3 6C230.7 11.8 256 41.6 256 76.5v2.9c0 20.8-8.6 40.6-23.8 54.8l-90.4 84.3c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L23.8 134.2C8.6 120 0 100.2 0 79.5V76.5C0 41.6 25.3 11.8 59.7 6zM72 320H48c-8.8 0-16 7.2-16 16V464c0 8.8 7.2 16 16 16H240c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216c-12.1 0-23.2-6.8-28.6-17.7L180.2 288H107.8l-7.2 14.3C95.2 313.2 84.1 320 72 320zm136.8-46.3L216 288h24c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336c0-26.5 21.5-48 48-48H72l7.2-14.3c5.4-10.8 16.5-17.7 28.6-17.7h72.4c12.1 0 23.2 6.8 28.6 17.7zM112 392a32 32 0 1 0 64 0 32 32 0 1 0 -64 0zm32 64a64 64 0 1 1 0-128 64 64 0 1 1 0 128zM475.3 283.3L390.6 368H480c6.5 0 12.3 3.9 14.8 9.9s1.1 12.9-3.5 17.4l-112 112c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L441.4 400H352c-6.5 0-12.3-3.9-14.8-9.9s-1.1-12.9 3.5-17.4l112-112c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
   })),
-  ..._components_block_icon_color__WEBPACK_IMPORTED_MODULE_1__["default"]
+  ...{
+    BlockIconColor: _yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_1__.BlockIconColor
+  }
 };
 /* harmony default export */ __webpack_exports__["default"] = (icon);
 
@@ -161,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @components/icon */ "./src/EditorComponents/icon/index.js");
+/* harmony import */ var _yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @yardinternet/gutenberg-components */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/index.js");
 
 /**
  * WordPress dependencies
@@ -181,7 +182,7 @@ const Save = props => {
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
-  }, icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_yardinternet_gutenberg_components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
     ...props
   }));
 };
@@ -189,29 +190,31 @@ const Save = props => {
 
 /***/ }),
 
-/***/ "./src/EditorComponents/block-icon-color/index.js":
-/*!********************************************************!*\
-  !*** ./src/EditorComponents/block-icon-color/index.js ***!
-  \********************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/block-icon-color/index.js":
+/*!*************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/block-icon-color/index.js ***!
+  \*************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editor.scss */ "./src/EditorComponents/block-icon-color/editor.scss");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BlockIconColor: function() { return /* binding */ BlockIconColor; }
+/* harmony export */ });
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editor.scss */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/block-icon-color/editor.scss");
 /**
  * Internal dependencies
  */
 
-const blockIconColor = {
+const BlockIconColor = {
   foreground: '#00a49e'
 };
-/* harmony default export */ __webpack_exports__["default"] = (blockIconColor);
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/components/delete-icon.js":
-/*!****************************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/components/delete-icon.js ***!
-  \****************************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/components/delete-icon.js":
+/*!*********************************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/components/delete-icon.js ***!
+  \*********************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -238,10 +241,10 @@ const DeleteIcon = ({
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/components/icon-results.js":
-/*!*****************************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/components/icon-results.js ***!
-  \*****************************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/components/icon-results.js":
+/*!**********************************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/components/icon-results.js ***!
+  \**********************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -278,10 +281,10 @@ const IconResults = ({
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/icon-picker-control-inspector.js":
-/*!***********************************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/icon-picker-control-inspector.js ***!
-  \***********************************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control-inspector.js":
+/*!****************************************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control-inspector.js ***!
+  \****************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -290,7 +293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
+/* harmony import */ var _icon_picker_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-picker-control */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control.js");
 
 /**
  * Internal dependencies
@@ -302,7 +305,7 @@ const IconPickerControlInspector = ({
   displayDeleteIcon = false,
   handleRemove
 }) => {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_1__.IconPickerControl, {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_icon_picker_control__WEBPACK_IMPORTED_MODULE_1__.IconPickerControl, {
     icon: icon,
     onChange: onChange,
     displayIconPreview: true,
@@ -314,10 +317,10 @@ const IconPickerControlInspector = ({
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/icon-picker-control-toolbar.js":
-/*!*********************************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/icon-picker-control-toolbar.js ***!
-  \*********************************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control-toolbar.js":
+/*!**************************************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control-toolbar.js ***!
+  \**************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -332,7 +335,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
+/* harmony import */ var _icon_picker_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icon-picker-control */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control.js");
 
 /**
  * WordPress dependencies
@@ -358,7 +361,7 @@ const IconPickerControlToolbar = ({
       onClick: onToggle,
       "aria-expanded": isOpen
     }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Kies icoon'))),
-    renderContent: () => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__.IconPickerControl, {
+    renderContent: () => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__.IconPickerControl, {
       icon: icon,
       onChange: onChange,
       displayIconPreview: false,
@@ -369,10 +372,10 @@ const IconPickerControlToolbar = ({
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/icon-picker-control.js":
-/*!*************************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/icon-picker-control.js ***!
-  \*************************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control.js":
+/*!******************************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control.js ***!
+  \******************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -393,11 +396,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/notices */ "@wordpress/notices");
 /* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_notices__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components_delete_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/delete-icon */ "./src/EditorComponents/icon-picker-control/components/delete-icon.js");
-/* harmony import */ var _components_icon_results__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/icon-results */ "./src/EditorComponents/icon-picker-control/components/icon-results.js");
-/* harmony import */ var _utils_api__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/api */ "./src/EditorComponents/icon-picker-control/utils/api.js");
-/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/helpers */ "./src/EditorComponents/icon-picker-control/utils/helpers.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./editor.scss */ "./src/EditorComponents/icon-picker-control/editor.scss");
+/* harmony import */ var _components_delete_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/delete-icon */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/components/delete-icon.js");
+/* harmony import */ var _components_icon_results__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/icon-results */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/components/icon-results.js");
+/* harmony import */ var _utils_api__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/api */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/utils/api.js");
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/helpers */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/utils/helpers.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./editor.scss */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/editor.scss");
 
 /**
  * WordPress dependencies
@@ -521,10 +524,10 @@ const IconPickerControl = ({
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/index.js":
-/*!***********************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/index.js ***!
-  \***********************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/index.js":
+/*!****************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/index.js ***!
+  \****************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -533,19 +536,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   IconPickerControlInspector: function() { return /* reexport safe */ _icon_picker_control_inspector__WEBPACK_IMPORTED_MODULE_0__.IconPickerControlInspector; },
 /* harmony export */   IconPickerControlToolbar: function() { return /* reexport safe */ _icon_picker_control_toolbar__WEBPACK_IMPORTED_MODULE_1__.IconPickerControlToolbar; }
 /* harmony export */ });
-/* harmony import */ var _icon_picker_control_inspector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon-picker-control-inspector */ "./src/EditorComponents/icon-picker-control/icon-picker-control-inspector.js");
-/* harmony import */ var _icon_picker_control_toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-picker-control-toolbar */ "./src/EditorComponents/icon-picker-control/icon-picker-control-toolbar.js");
-/* harmony import */ var _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-picker-control */ "./src/EditorComponents/icon-picker-control/icon-picker-control.js");
+/* harmony import */ var _icon_picker_control_inspector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon-picker-control-inspector */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control-inspector.js");
+/* harmony import */ var _icon_picker_control_toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-picker-control-toolbar */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control-toolbar.js");
+/* harmony import */ var _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-picker-control */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/icon-picker-control.js");
 
 
 
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/utils/api.js":
-/*!***************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/utils/api.js ***!
-  \***************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/utils/api.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/utils/api.js ***!
+  \********************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -598,10 +601,10 @@ const getFontAwesomeIcons = async search => {
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/utils/helpers.js":
-/*!*******************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/utils/helpers.js ***!
-  \*******************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/utils/helpers.js":
+/*!************************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/utils/helpers.js ***!
+  \************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -645,13 +648,16 @@ const checkIfFamilyStyleIsAllowed = (familyStyle, allowedFamilyStyles) => {
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon/index.js":
-/*!********************************************!*\
-  !*** ./src/EditorComponents/icon/index.js ***!
-  \********************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon/index.js":
+/*!*************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon/index.js ***!
+  \*************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Icon: function() { return /* binding */ Icon; }
+/* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -673,14 +679,36 @@ const Icon = props => {
     }
   });
 };
-/* harmony default export */ __webpack_exports__["default"] = (Icon);
 
 /***/ }),
 
-/***/ "./src/EditorComponents/block-icon-color/editor.scss":
-/*!***********************************************************!*\
-  !*** ./src/EditorComponents/block-icon-color/editor.scss ***!
-  \***********************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/index.js":
+/*!********************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/index.js ***!
+  \********************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BlockIconColor: function() { return /* reexport safe */ _block_icon_color__WEBPACK_IMPORTED_MODULE_0__.BlockIconColor; },
+/* harmony export */   Icon: function() { return /* reexport safe */ _icon__WEBPACK_IMPORTED_MODULE_1__.Icon; },
+/* harmony export */   IconPickerControl: function() { return /* reexport safe */ _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__.IconPickerControl; },
+/* harmony export */   IconPickerControlInspector: function() { return /* reexport safe */ _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__.IconPickerControlInspector; },
+/* harmony export */   IconPickerControlToolbar: function() { return /* reexport safe */ _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__.IconPickerControlToolbar; }
+/* harmony export */ });
+/* harmony import */ var _block_icon_color__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./block-icon-color */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/block-icon-color/index.js");
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon/index.js");
+/* harmony import */ var _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-picker-control */ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/index.js");
+
+
+
+
+/***/ }),
+
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/block-icon-color/editor.scss":
+/*!****************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/block-icon-color/editor.scss ***!
+  \****************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -689,10 +717,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/EditorComponents/icon-picker-control/editor.scss":
-/*!**************************************************************!*\
-  !*** ./src/EditorComponents/icon-picker-control/editor.scss ***!
-  \**************************************************************/
+/***/ "../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/editor.scss":
+/*!*******************************************************************************************************************!*\
+  !*** ../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/editor.scss ***!
+  \*******************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);

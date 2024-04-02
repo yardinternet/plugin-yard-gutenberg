@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { IconPickerControlInspector } from '@components/icon-picker-control';
+import { IconPickerControlInspector } from '@yardinternet/gutenberg-components';
 import { useParentBlock } from '@yardinternet/gutenberg-hooks';
 
 const Inspector = ( props ) => {
