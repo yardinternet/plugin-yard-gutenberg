@@ -7,8 +7,8 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { IconPickerControlToolbar } from '@components/icon-picker-control';
-import Icon from '@components/icon';
+import { IconPickerControlToolbar } from '@yardinternet/gutenberg-components';
+import { Icon } from '@yardinternet/gutenberg-components';
 import Inspector from './components/inspector';
 import './editor.scss';
 

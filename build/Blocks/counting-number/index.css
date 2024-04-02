@@ -1,8 +1,44 @@
-/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/EditorComponents/block-icon-color/editor.scss ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../../../../../../../../Projects/gutenberg-packages/packages/components/src/block-icon-color/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .block-editor-list-view-leaf.is-selected .block-editor-block-icon {
   color: currentColor !important;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../../../../../../../../Projects/gutenberg-packages/packages/components/src/icon-picker-control/editor.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.icon-picker-control-preview-icon {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+.icon-picker-control-popover > div {
+  min-width: 331px;
+}
+.icon-picker-control-popover > div .icon-picker-control-results-container {
+  margin: 0;
+}
+.icon-picker-control-results-container {
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem;
+  row-gap: 10px;
+}
+.icon-picker-control-icon-btn-container {
+  display: flex;
+  width: 60px;
+  justify-content: center;
+}
+.icon-picker-control-icon-btn-container i {
+  font-size: 2rem;
+}
+.icon-picker-control-notice {
+  margin-right: 0;
+  margin-left: 0;
+}
+.icon-picker-control-delete-icon-btn {
+  margin-bottom: 1.5rem;
 }
 
 /*# sourceMappingURL=index.css.map*/
