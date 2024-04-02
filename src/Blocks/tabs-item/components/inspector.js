@@ -9,7 +9,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import { IconPickerControlInspector } from '@components/icon-picker-control';
-import { useParentBlock } from '@hooks';
+import { useParentBlock } from '@yardinternet/gutenberg-hooks';
 
 const Inspector = ( props ) => {
 	const { attributes, setAttributes, enableIcon } = props;

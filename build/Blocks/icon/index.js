@@ -1,1 +1,905 @@
-!function(){"use strict";var e=window.wp.blocks,t=window.React,n=window.wp.blockEditor;const c=({icon:e,onChange:n,displayDeleteIcon:c=!1,handleRemove:o})=>(0,t.createElement)(p,{icon:e,onChange:n,displayIconPreview:!0,displayAsPopover:!0,displayDeleteIcon:c,handleRemove:o});var o=window.wp.components,l=window.wp.i18n;const a=({icon:e,onChange:c})=>(0,t.createElement)(n.BlockControls,null,(0,t.createElement)(o.Dropdown,{contentClassName:"icon-picker-control-popover",renderToggle:({isOpen:e,onToggle:n})=>(0,t.createElement)(o.ToolbarGroup,null,(0,t.createElement)(o.ToolbarButton,{onClick:n,"aria-expanded":e},(0,l.__)("Kies icoon"))),renderContent:()=>(0,t.createElement)(p,{icon:e,onChange:c,displayIconPreview:!1,displayAsPopover:!1})}));var i=window.wp.data,r=window.wp.element,s=window.wp.hooks,m=window.wp.notices,y=({handleRemove:e})=>(0,t.createElement)(o.Button,{variant:"secondary",onClick:e,className:"icon-picker-control-delete-icon-btn",isDestructive:!0},"Verwijder icoon"),d=({searchResults:e,handleIconClick:n})=>(0,t.createElement)("div",{className:"icon-picker-control-results-container"},e?.map(((e,c)=>(0,t.createElement)("div",{className:"icon-picker-control-icon-btn-container",key:c},(0,t.createElement)(o.Button,{onClick:()=>n(e)},(0,t.createElement)("i",{className:e}))))),!e?.length&&(0,t.createElement)("p",null,(0,l.__)("Er zijn geen iconen gevonden")));const p=({onChange:e,icon:n,displayIconPreview:c=!0,displayAsPopover:a=!0,displayDeleteIcon:p=!1,handleRemove:h})=>{const[u,w]=(0,r.useState)(!1),[f,v]=(0,r.useState)(""),[E,g]=(0,r.useState)([]),[k,C]=(0,r.useState)(),{createNotice:b}=(0,i.useDispatch)(m.store),_=(0,s.applyFilters)("yard.fontawesome-family-styles",[{family:"classic",style:"solid"},{family:"classic",style:"regular"},{family:"classic",style:"light"},{family:"classic",style:"thin"},{family:"classic",style:"brands"},{family:"duotone",style:"solid"},{family:"sharp",style:"solid"},{family:"sharp",style:"regular"},{family:"sharp",style:"light"},{family:"sharp",style:"thin"}]),B=()=>{b("error",(0,l.__)("Momenteel kunnen er geen iconen worden opgehaald, probeer het later nog een keer."),{isDismissible:!0,type:"snackbar",id:"icon-picker-control-error"})},z=t=>{e(t),v((()=>"")),w((()=>!1))};return(0,t.createElement)(t.Fragment,null,c&&n&&(0,t.createElement)("i",{className:n+" icon-picker-control-preview-icon"}),(0,t.createElement)(o.SearchControl,{placeholder:(0,l.__)("Zoek een icoon"),value:f,help:(0,l.__)("Gebruik Engelse termen om een icoon te zoeken."),onChange:e=>{v(e),(async e=>{try{const t=await(async e=>{const t=`{ search(version: "6.x", first: 100, query: "${e}")\n\t\t{\n\t\t\tid\n\t\t\tfamilyStylesByLicense {\n\t\t\t\tfree {\n\t\t\t\t\tfamily\n\t\t\t\t\tstyle\n\t\t\t\t}\n\t\t\t\tpro {\n\t\t\t\t\tfamily\n\t\t\t\t\tstyle\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}`;try{return(await fetch("https://api.fontawesome.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({query:t})})).json()}catch(e){throw new Error(e)}})(e);if(!t)return;const n=t?.data?.search.reduce(((e,t)=>(((e,t)=>(e=>{const t=e.familyStylesByLicense.free,n=e.familyStylesByLicense.pro,c=t.concat(n);return c.filter(((e,t)=>c.findIndex((t=>t.family===e.family&&t.style===e.style))===t))})(e).filter((e=>((e,t)=>t.some((t=>t.family===e.family&&t.style===e.style)))(e,t))).map((t=>`fa-${t.family} fa-${t.style} fa-${e.id}`)))(t,_).forEach((t=>{e.push(t)})),e)),[]);if(!n)return;g(n),w(!0)}catch(e){return B()}})(e)},ref:C}),a&&f&&u&&(0,t.createElement)(o.Popover,{anchor:k,title:(0,l.__)("Kies een icoon"),onClose:()=>w(!1),focusOnMount:!1},(0,t.createElement)(d,{searchResults:E,handleIconClick:z})),!a&&f&&(0,t.createElement)(d,{searchResults:E,handleIconClick:z}),p&&n&&(0,t.createElement)(y,{handleRemove:h}))};var h=e=>{const{attributes:n}=e,{icon:c,iconAltText:o,iconColor:l}=n;return(0,t.createElement)("i",{className:`wp-block-yard-icon-component fa-fw ${c} `,title:o||null,"aria-hidden":"true",style:{color:l}})},u=e=>{const{setAttributes:a,attributes:i}=e,{icon:r,iconAltText:s}=i;return(0,t.createElement)(n.InspectorControls,null,(0,t.createElement)(o.PanelBody,{title:(0,l.__)("Kies een icoon")},(0,t.createElement)(c,{icon:r,onChange:e=>{void 0!==e&&a({icon:e})}})),(0,t.createElement)(o.PanelBody,{title:(0,l.__)("Toegankelijkheid"),initialOpen:!1},(0,t.createElement)(o.TextControl,{label:(0,l.__)("Alternatieve tekst"),value:s,onChange:e=>a({iconAltText:e}),help:(0,l.__)("Voeg een alternatieve tekst toe als een icoon betekenis heeft.")})))},w={src:(0,t.createElement)("svg",{xmlns:"http://www.w3.org/2000/svg",height:"1em",viewBox:"0 0 512 512"},(0,t.createElement)("path",{d:"M473.7 4.1C493.5 .2 512 15.3 512 35.5V168h-.2c.1 1.3 .2 2.7 .2 4c0 28.7-28.7 52-64 52s-64-23.3-64-52s28.7-52 64-52c11.7 0 22.6 2.5 32 7V35.5L352 61.1V200h-.2c.1 1.3 .2 2.7 .2 4c0 28.7-28.7 52-64 52s-64-23.3-64-52s28.7-52 64-52c11.7 0 22.6 2.5 32 7V61.1c0-15.3 10.8-28.4 25.7-31.4l128-25.6zM480 172c0-3.1-1.5-7.5-6.9-11.9c-5.5-4.5-14.3-8.1-25.1-8.1s-19.5 3.6-25.1 8.1c-5.5 4.4-6.9 8.8-6.9 11.9s1.5 7.5 6.9 11.9c5.5 4.5 14.3 8.1 25.1 8.1s19.5-3.6 25.1-8.1c5.5-4.4 6.9-8.8 6.9-11.9zM320 204c0-3.1-1.5-7.5-6.9-11.9c-5.5-4.5-14.3-8.1-25.1-8.1s-19.5 3.6-25.1 8.1c-5.5 4.4-6.9 8.8-6.9 11.9s1.5 7.5 6.9 11.9c5.5 4.5 14.3 8.1 25.1 8.1s19.5-3.6 25.1-8.1c5.5-4.4 6.9-8.8 6.9-11.9zM105.4 54.6l-6-6c-9-9-21.8-13.1-34.4-11c-19 3.2-33 19.6-33 38.9v2.9c0 11.9 4.9 23.2 13.6 31.4L128 187.7l82.4-76.9c8.7-8.1 13.6-19.5 13.6-31.4V76.5c0-19.3-13.9-35.8-33-38.9c-12.6-2.1-25.4 2-34.4 11l-6 6L128 77.3 105.4 54.6zM59.7 6C82.5 2.3 105.7 9.7 122 26l0 0 6 6 6-6C150.3 9.7 173.5 2.3 196.3 6C230.7 11.8 256 41.6 256 76.5v2.9c0 20.8-8.6 40.6-23.8 54.8l-90.4 84.3c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L23.8 134.2C8.6 120 0 100.2 0 79.5V76.5C0 41.6 25.3 11.8 59.7 6zM72 320H48c-8.8 0-16 7.2-16 16V464c0 8.8 7.2 16 16 16H240c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216c-12.1 0-23.2-6.8-28.6-17.7L180.2 288H107.8l-7.2 14.3C95.2 313.2 84.1 320 72 320zm136.8-46.3L216 288h24c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336c0-26.5 21.5-48 48-48H72l7.2-14.3c5.4-10.8 16.5-17.7 28.6-17.7h72.4c12.1 0 23.2 6.8 28.6 17.7zM112 392a32 32 0 1 0 64 0 32 32 0 1 0 -64 0zm32 64a64 64 0 1 1 0-128 64 64 0 1 1 0 128zM475.3 283.3L390.6 368H480c6.5 0 12.3 3.9 14.8 9.9s1.1 12.9-3.5 17.4l-112 112c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L441.4 400H352c-6.5 0-12.3-3.9-14.8-9.9s-1.1-12.9 3.5-17.4l112-112c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"})),foreground:"#00a49e"};(0,e.registerBlockType)("yard/icon",{edit:e=>{const{attributes:c,setAttributes:o}=e,{icon:l}=c;return(0,t.createElement)("div",{...(0,n.useBlockProps)()},(0,t.createElement)(a,{icon:l,onChange:e=>{void 0!==e&&o({icon:e})}}),(0,t.createElement)(u,{...e}),l&&(0,t.createElement)(h,{...e}))},icon:w,save:e=>{const{attributes:c}=e,{icon:o}=c;return(0,t.createElement)("div",{...n.useBlockProps.save()},o&&(0,t.createElement)(h,{...e}))}})}();
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/Blocks/icon/components/inspector.js":
+/*!*************************************************!*\
+  !*** ./src/Blocks/icon/components/inspector.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+const Inspector = props => {
+  const {
+    setAttributes,
+    attributes
+  } = props;
+  const {
+    icon,
+    iconAltText
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Kies een icoon')
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__.IconPickerControlInspector, {
+    icon: icon,
+    onChange: result => {
+      if (result !== undefined) {
+        setAttributes({
+          icon: result
+        });
+      }
+    }
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Toegankelijkheid'),
+    initialOpen: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Alternatieve tekst'),
+    value: iconAltText,
+    onChange: value => setAttributes({
+      iconAltText: value
+    }),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Voeg een alternatieve tekst toe als een icoon betekenis heeft.')
+  })));
+};
+/* harmony default export */ __webpack_exports__["default"] = (Inspector);
+
+/***/ }),
+
+/***/ "./src/Blocks/icon/edit.js":
+/*!*********************************!*\
+  !*** ./src/Blocks/icon/edit.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
+/* harmony import */ var _components_icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @components/icon */ "./src/EditorComponents/icon/index.js");
+/* harmony import */ var _components_inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/inspector */ "./src/Blocks/icon/components/inspector.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+const Edit = props => {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    icon
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)()
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_2__.IconPickerControlToolbar, {
+    icon: icon,
+    onChange: result => {
+      if (result !== undefined) {
+        setAttributes({
+          icon: result
+        });
+      }
+    }
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_inspector__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    ...props
+  }), icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    ...props
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (Edit);
+
+/***/ }),
+
+/***/ "./src/Blocks/icon/icon.js":
+/*!*********************************!*\
+  !*** ./src/Blocks/icon/icon.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_block_icon_color__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @components/block-icon-color */ "./src/EditorComponents/block-icon-color/index.js");
+
+/**
+ * Internal dependencies
+ */
+
+const icon = {
+  src: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    height: "1em",
+    viewBox: "0 0 512 512"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M473.7 4.1C493.5 .2 512 15.3 512 35.5V168h-.2c.1 1.3 .2 2.7 .2 4c0 28.7-28.7 52-64 52s-64-23.3-64-52s28.7-52 64-52c11.7 0 22.6 2.5 32 7V35.5L352 61.1V200h-.2c.1 1.3 .2 2.7 .2 4c0 28.7-28.7 52-64 52s-64-23.3-64-52s28.7-52 64-52c11.7 0 22.6 2.5 32 7V61.1c0-15.3 10.8-28.4 25.7-31.4l128-25.6zM480 172c0-3.1-1.5-7.5-6.9-11.9c-5.5-4.5-14.3-8.1-25.1-8.1s-19.5 3.6-25.1 8.1c-5.5 4.4-6.9 8.8-6.9 11.9s1.5 7.5 6.9 11.9c5.5 4.5 14.3 8.1 25.1 8.1s19.5-3.6 25.1-8.1c5.5-4.4 6.9-8.8 6.9-11.9zM320 204c0-3.1-1.5-7.5-6.9-11.9c-5.5-4.5-14.3-8.1-25.1-8.1s-19.5 3.6-25.1 8.1c-5.5 4.4-6.9 8.8-6.9 11.9s1.5 7.5 6.9 11.9c5.5 4.5 14.3 8.1 25.1 8.1s19.5-3.6 25.1-8.1c5.5-4.4 6.9-8.8 6.9-11.9zM105.4 54.6l-6-6c-9-9-21.8-13.1-34.4-11c-19 3.2-33 19.6-33 38.9v2.9c0 11.9 4.9 23.2 13.6 31.4L128 187.7l82.4-76.9c8.7-8.1 13.6-19.5 13.6-31.4V76.5c0-19.3-13.9-35.8-33-38.9c-12.6-2.1-25.4 2-34.4 11l-6 6L128 77.3 105.4 54.6zM59.7 6C82.5 2.3 105.7 9.7 122 26l0 0 6 6 6-6C150.3 9.7 173.5 2.3 196.3 6C230.7 11.8 256 41.6 256 76.5v2.9c0 20.8-8.6 40.6-23.8 54.8l-90.4 84.3c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L23.8 134.2C8.6 120 0 100.2 0 79.5V76.5C0 41.6 25.3 11.8 59.7 6zM72 320H48c-8.8 0-16 7.2-16 16V464c0 8.8 7.2 16 16 16H240c8.8 0 16-7.2 16-16V336c0-8.8-7.2-16-16-16H216c-12.1 0-23.2-6.8-28.6-17.7L180.2 288H107.8l-7.2 14.3C95.2 313.2 84.1 320 72 320zm136.8-46.3L216 288h24c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336c0-26.5 21.5-48 48-48H72l7.2-14.3c5.4-10.8 16.5-17.7 28.6-17.7h72.4c12.1 0 23.2 6.8 28.6 17.7zM112 392a32 32 0 1 0 64 0 32 32 0 1 0 -64 0zm32 64a64 64 0 1 1 0-128 64 64 0 1 1 0 128zM475.3 283.3L390.6 368H480c6.5 0 12.3 3.9 14.8 9.9s1.1 12.9-3.5 17.4l-112 112c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L441.4 400H352c-6.5 0-12.3-3.9-14.8-9.9s-1.1-12.9 3.5-17.4l112-112c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+  })),
+  ..._components_block_icon_color__WEBPACK_IMPORTED_MODULE_1__["default"]
+};
+/* harmony default export */ __webpack_exports__["default"] = (icon);
+
+/***/ }),
+
+/***/ "./src/Blocks/icon/save.js":
+/*!*********************************!*\
+  !*** ./src/Blocks/icon/save.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @components/icon */ "./src/EditorComponents/icon/index.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+const Save = props => {
+  const {
+    attributes
+  } = props;
+  const {
+    icon
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+  }, icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    ...props
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (Save);
+
+/***/ }),
+
+/***/ "./src/EditorComponents/block-icon-color/index.js":
+/*!********************************************************!*\
+  !*** ./src/EditorComponents/block-icon-color/index.js ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editor.scss */ "./src/EditorComponents/block-icon-color/editor.scss");
+/**
+ * Internal dependencies
+ */
+
+const blockIconColor = {
+  foreground: '#00a49e'
+};
+/* harmony default export */ __webpack_exports__["default"] = (blockIconColor);
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/components/delete-icon.js":
+/*!****************************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/components/delete-icon.js ***!
+  \****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+/**
+ * WordPress dependencies
+ */
+
+const DeleteIcon = ({
+  handleRemove
+}) => {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+    variant: "secondary",
+    onClick: handleRemove,
+    className: "icon-picker-control-delete-icon-btn",
+    isDestructive: true
+  }, "Verwijder icoon");
+};
+/* harmony default export */ __webpack_exports__["default"] = (DeleteIcon);
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/components/icon-results.js":
+/*!*****************************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/components/icon-results.js ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+
+/**
+ * WordPress dependencies
+ */
+
+
+const IconResults = ({
+  searchResults,
+  handleIconClick
+}) => {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "icon-picker-control-results-container"
+  }, searchResults?.map((result, key) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "icon-picker-control-icon-btn-container",
+      key: key
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      onClick: () => handleIconClick(result)
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: result
+    })));
+  }), !searchResults?.length && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Er zijn geen iconen gevonden')));
+};
+/* harmony default export */ __webpack_exports__["default"] = (IconResults);
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/icon-picker-control-inspector.js":
+/*!***********************************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/icon-picker-control-inspector.js ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   IconPickerControlInspector: function() { return /* binding */ IconPickerControlInspector; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
+
+/**
+ * Internal dependencies
+ */
+
+const IconPickerControlInspector = ({
+  icon,
+  onChange,
+  displayDeleteIcon = false,
+  handleRemove
+}) => {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_1__.IconPickerControl, {
+    icon: icon,
+    onChange: onChange,
+    displayIconPreview: true,
+    displayAsPopover: true,
+    displayDeleteIcon: displayDeleteIcon,
+    handleRemove: handleRemove
+  });
+};
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/icon-picker-control-toolbar.js":
+/*!*********************************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/icon-picker-control-toolbar.js ***!
+  \*********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   IconPickerControlToolbar: function() { return /* binding */ IconPickerControlToolbar; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @components/icon-picker-control */ "./src/EditorComponents/icon-picker-control/index.js");
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+const IconPickerControlToolbar = ({
+  icon,
+  onChange
+}) => {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dropdown, {
+    contentClassName: "icon-picker-control-popover",
+    renderToggle: ({
+      isOpen,
+      onToggle
+    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarGroup, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
+      onClick: onToggle,
+      "aria-expanded": isOpen
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Kies icoon'))),
+    renderContent: () => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_picker_control__WEBPACK_IMPORTED_MODULE_4__.IconPickerControl, {
+      icon: icon,
+      onChange: onChange,
+      displayIconPreview: false,
+      displayAsPopover: false
+    })
+  }));
+};
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/icon-picker-control.js":
+/*!*************************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/icon-picker-control.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   IconPickerControl: function() { return /* binding */ IconPickerControl; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/hooks */ "@wordpress/hooks");
+/* harmony import */ var _wordpress_hooks__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_hooks__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/notices */ "@wordpress/notices");
+/* harmony import */ var _wordpress_notices__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_notices__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_delete_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/delete-icon */ "./src/EditorComponents/icon-picker-control/components/delete-icon.js");
+/* harmony import */ var _components_icon_results__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/icon-results */ "./src/EditorComponents/icon-picker-control/components/icon-results.js");
+/* harmony import */ var _utils_api__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/api */ "./src/EditorComponents/icon-picker-control/utils/api.js");
+/* harmony import */ var _utils_helpers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/helpers */ "./src/EditorComponents/icon-picker-control/utils/helpers.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./editor.scss */ "./src/EditorComponents/icon-picker-control/editor.scss");
+
+/**
+ * WordPress dependencies
+ */
+
+
+
+
+
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+const IconPickerControl = ({
+  onChange,
+  icon,
+  displayIconPreview = true,
+  displayAsPopover = true,
+  displayDeleteIcon = false,
+  handleRemove
+}) => {
+  const [isOpen, setOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+  const [searchInput, setSearchInput] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)('');
+  const [searchResults, setSearchResults] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
+  const [popoverAnchor, setPopoverAnchor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)();
+  const {
+    createNotice
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useDispatch)(_wordpress_notices__WEBPACK_IMPORTED_MODULE_6__.store);
+  const allowedFamilyStyles = (0,_wordpress_hooks__WEBPACK_IMPORTED_MODULE_5__.applyFilters)('yard.fontawesome-family-styles', [{
+    family: 'classic',
+    style: 'solid'
+  }, {
+    family: 'classic',
+    style: 'regular'
+  }, {
+    family: 'classic',
+    style: 'light'
+  }, {
+    family: 'classic',
+    style: 'thin'
+  }, {
+    family: 'classic',
+    style: 'brands'
+  }, {
+    family: 'duotone',
+    style: 'solid'
+  }, {
+    family: 'sharp',
+    style: 'solid'
+  }, {
+    family: 'sharp',
+    style: 'regular'
+  }, {
+    family: 'sharp',
+    style: 'light'
+  }, {
+    family: 'sharp',
+    style: 'thin'
+  }]);
+  const searchFontAwesomeIcons = async searchValue => {
+    try {
+      const response = await (0,_utils_api__WEBPACK_IMPORTED_MODULE_9__.getFontAwesomeIcons)(searchValue);
+      if (!response) return;
+      const result = response?.data?.search.reduce((iconResults, iconData) => {
+        (0,_utils_helpers__WEBPACK_IMPORTED_MODULE_10__.convertResponseToClassnames)(iconData, allowedFamilyStyles).forEach(value => {
+          iconResults.push(value);
+        });
+        return iconResults;
+      }, []);
+      if (!result) return;
+      setSearchResults(result);
+      setOpen(true);
+    } catch (err) {
+      return showErrorNotice();
+    }
+  };
+  const showErrorNotice = () => {
+    createNotice('error', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Momenteel kunnen er geen iconen worden opgehaald, probeer het later nog een keer.'), {
+      isDismissible: true,
+      type: 'snackbar',
+      id: 'icon-picker-control-error'
+    });
+  };
+  const handleIconClick = clickedIcon => {
+    onChange(clickedIcon);
+    setSearchInput(() => '');
+    setOpen(() => false);
+  };
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, displayIconPreview && icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: icon + ' icon-picker-control-preview-icon'
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SearchControl, {
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Zoek een icoon'),
+    value: searchInput,
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Gebruik Engelse termen om een icoon te zoeken.'),
+    onChange: searchValue => {
+      setSearchInput(searchValue);
+      searchFontAwesomeIcons(searchValue);
+    },
+    ref: setPopoverAnchor
+  }), displayAsPopover && searchInput && isOpen && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Popover, {
+    anchor: popoverAnchor,
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Kies een icoon'),
+    onClose: () => setOpen(false),
+    focusOnMount: false
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_results__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    searchResults: searchResults,
+    handleIconClick: handleIconClick
+  })), !displayAsPopover && searchInput && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_icon_results__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    searchResults: searchResults,
+    handleIconClick: handleIconClick
+  }), displayDeleteIcon && icon && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_delete_icon__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    handleRemove: handleRemove
+  }));
+};
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/index.js":
+/*!***********************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/index.js ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   IconPickerControl: function() { return /* reexport safe */ _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__.IconPickerControl; },
+/* harmony export */   IconPickerControlInspector: function() { return /* reexport safe */ _icon_picker_control_inspector__WEBPACK_IMPORTED_MODULE_0__.IconPickerControlInspector; },
+/* harmony export */   IconPickerControlToolbar: function() { return /* reexport safe */ _icon_picker_control_toolbar__WEBPACK_IMPORTED_MODULE_1__.IconPickerControlToolbar; }
+/* harmony export */ });
+/* harmony import */ var _icon_picker_control_inspector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon-picker-control-inspector */ "./src/EditorComponents/icon-picker-control/icon-picker-control-inspector.js");
+/* harmony import */ var _icon_picker_control_toolbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-picker-control-toolbar */ "./src/EditorComponents/icon-picker-control/icon-picker-control-toolbar.js");
+/* harmony import */ var _icon_picker_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon-picker-control */ "./src/EditorComponents/icon-picker-control/icon-picker-control.js");
+
+
+
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/utils/api.js":
+/*!***************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/utils/api.js ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getFontAwesomeIcons: function() { return /* binding */ getFontAwesomeIcons; }
+/* harmony export */ });
+/**
+ * Use FontAwesome API to search for icons
+ *
+ * @param {string} search - The value to search for icons.
+ *
+ * @see https://fontawesome.com/docs/apis/graphql/query-fields#search-icon
+ * @see https://fontawesome.com/docs/apis/graphql/objects#icon
+ * @see https://fontawesome.com/docs/apis/graphql/objects#familystylesbylicense
+ * @see https://fontawesome.com/docs/apis/graphql/objects#familystyle
+ */
+const getFontAwesomeIcons = async search => {
+  const query = `{ search(version: "6.x", first: 100, query: "${search}")
+		{
+			id
+			familyStylesByLicense {
+				free {
+					family
+					style
+				}
+				pro {
+					family
+					style
+				}
+			}
+		}
+	}`;
+  try {
+    const res = await fetch('https://api.fontawesome.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        query
+      })
+    });
+    const data = res.json();
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/utils/helpers.js":
+/*!*******************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/utils/helpers.js ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   convertResponseToClassnames: function() { return /* binding */ convertResponseToClassnames; }
+/* harmony export */ });
+/**
+ * Create a classname based on the response from the FontAwesome API with only the allowed familyStyles
+ *
+ * @param {Object} response - The response from the Font Awesome API.
+ * @param {Array} allowedFamilyStyles - The allowed family styles
+ */
+const convertResponseToClassnames = (response, allowedFamilyStyles) => {
+  const allFamilyStyles = getAllFamilyStyles(response);
+  return allFamilyStyles.filter(familyStyle => checkIfFamilyStyleIsAllowed(familyStyle, allowedFamilyStyles)).map(familyStyle => `fa-${familyStyle.family} fa-${familyStyle.style} fa-${response.id}`);
+};
+
+/**
+ * Returns one array with the allowed free and pro familyStyles
+ *
+ * @param {Object} response - The response from the Font Awesome API.
+ */
+const getAllFamilyStyles = response => {
+  const freeFamilyStyles = response.familyStylesByLicense.free;
+  const proFamilyStyles = response.familyStylesByLicense.pro;
+  const allFamilyStyles = freeFamilyStyles.concat(proFamilyStyles);
+
+  // Remove duplicated familyStyles
+  return allFamilyStyles.filter((obj, index) => allFamilyStyles.findIndex(item => item.family === obj.family && item.style === obj.style) === index);
+};
+
+/**
+ * Check if the current familyStyle exist in allowedFamilyStyles
+ *
+ * @param {Object} familyStyle - The familyStyle to check if it's allowed.
+ * @param {Array} allowedFamilyStyles - The allowed family styles
+ */
+const checkIfFamilyStyleIsAllowed = (familyStyle, allowedFamilyStyles) => {
+  return allowedFamilyStyles.some(obj => obj.family === familyStyle.family && obj.style === familyStyle.style);
+};
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon/index.js":
+/*!********************************************!*\
+  !*** ./src/EditorComponents/icon/index.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const Icon = props => {
+  const {
+    attributes
+  } = props;
+  const {
+    icon,
+    iconAltText,
+    iconColor
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: `wp-block-yard-icon-component fa-fw ${icon} `,
+    title: iconAltText ? iconAltText : null,
+    "aria-hidden": "true",
+    style: {
+      color: iconColor
+    }
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (Icon);
+
+/***/ }),
+
+/***/ "./src/EditorComponents/block-icon-color/editor.scss":
+/*!***********************************************************!*\
+  !*** ./src/EditorComponents/block-icon-color/editor.scss ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/EditorComponents/icon-picker-control/editor.scss":
+/*!**************************************************************!*\
+  !*** ./src/EditorComponents/icon-picker-control/editor.scss ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ (function(module) {
+
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/hooks":
+/*!*******************************!*\
+  !*** external ["wp","hooks"] ***!
+  \*******************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["hooks"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "@wordpress/notices":
+/*!*********************************!*\
+  !*** external ["wp","notices"] ***!
+  \*********************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["notices"];
+
+/***/ }),
+
+/***/ "./src/Blocks/icon/block.json":
+/*!************************************!*\
+  !*** ./src/Blocks/icon/block.json ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"yard/icon","version":"0.1.0","title":"Icoon","category":"yard","description":"Voeg een Font Awesome icoon toe.","supports":{"align":true,"ariaLabel":true,"color":{"background":true,"color":true},"spacing":{"margin":true,"padding":true},"typography":{"fontSize":true}},"attributes":{"icon":{"type":"string","default":"fa-classic fa-light fa-envelope"},"iconAltText":{"type":"string","default":""}},"textdomain":"yard","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+!function() {
+/*!**********************************!*\
+  !*** ./src/Blocks/icon/index.js ***!
+  \**********************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/Blocks/icon/edit.js");
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icon */ "./src/Blocks/icon/icon.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/Blocks/icon/block.json");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/Blocks/icon/save.js");
+/**
+ * WordPress dependencies
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
+  edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
+  icon: _icon__WEBPACK_IMPORTED_MODULE_2__["default"],
+  save: _save__WEBPACK_IMPORTED_MODULE_4__["default"]
+});
+}();
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

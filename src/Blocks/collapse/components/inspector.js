@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { useCurrentBlock } from '@hooks';
+import { useCurrentBlock } from '@yardinternet/gutenberg-hooks';
 
 const Inspector = ( props ) => {
 	const { setAttributes, attributes } = props;

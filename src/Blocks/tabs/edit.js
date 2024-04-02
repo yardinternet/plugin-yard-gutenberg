@@ -8,7 +8,7 @@ import { useCallback, useEffect } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import { useCurrentBlock } from '@hooks';
+import { useCurrentBlock } from '@yardinternet/gutenberg-hooks';
 import Inspector from './components/inspector';
 import './editor.scss';
 

@@ -1,0 +1,1 @@
+{"version":3,"file":"Blocks/counting-number/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://yard-gutenberg/./src/EditorComponents/block-icon-color/editor.scss"],"sourcesContent":[".block-editor-list-view-leaf.is-selected .block-editor-block-icon {\n\tcolor: currentColor !important;\n}\n"],"names":[],"sourceRoot":""}
