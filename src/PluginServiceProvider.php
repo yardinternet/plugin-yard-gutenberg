@@ -28,7 +28,6 @@ class PluginServiceProvider
     public function bootProviders(): void
     {
         $providers = [
-            EditorSettings\EditorSettingsManager::class,
             Menu\MenuManager::class,
             Patterns\PatternManager::class,
         ];
