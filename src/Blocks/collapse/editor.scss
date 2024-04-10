@@ -1,4 +1,10 @@
+@import '../mixins';
+
 .wp-block-yard-collapse .block-list-appender {
 	position: static;
 	margin-bottom: 1rem;
+
+	.block-editor-button-block-appender {
+		@include button-block-appender;
+	}
 }
