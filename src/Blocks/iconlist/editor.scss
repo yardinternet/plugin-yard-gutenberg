@@ -1,3 +1,5 @@
+@import '../mixins';
+
 $block: 'wp-block-yard-iconlist';
 
 .#{$block} {
@@ -6,5 +8,9 @@ $block: 'wp-block-yard-iconlist';
 
 	.block-list-appender {
 		position: static;
+
+		.block-editor-button-block-appender {
+			@include button-block-appender;
+		}
 	}
 }

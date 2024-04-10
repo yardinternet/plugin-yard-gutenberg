@@ -1,3 +1,5 @@
+@import '../mixins';
+
 $block: 'wp-block-yard-tabs';
 
 .#{$block} {
@@ -12,5 +14,9 @@ $block: 'wp-block-yard-tabs';
 	.block-list-appender {
 		order: 99;
 		position: static;
+
+		.block-editor-button-block-appender {
+			@include button-block-appender;
+		}
 	}
 }
