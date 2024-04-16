@@ -105,7 +105,7 @@ class PluginServiceProvider
      */
     public function getRenderCallback(string $blockName)
     {
-		$nameSpacedClass = 'Yard\\Gutenberg\\Blocks\\' . $blockName . '\\' . ucfirst($blockName);
+		$nameSpacedClass = 'Yard\\Gutenberg\\Blocks\\' . ucfirst($blockName) . '\\' . ucfirst($blockName);
 
 		if (class_exists($nameSpacedClass)) {
             $blockClass = new $nameSpacedClass;
