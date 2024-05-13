@@ -22,6 +22,7 @@ if (! defined('ABSPATH')) {
 
 define('YARD_GUTENBERG_PLUGIN_VERSION', '0.1.9');
 define('YARD_GUTENBERG_PLUGIN_DIR_URL', \plugin_dir_url(__FILE__));
+define('YARD_GUTENBERG_PLUGIN_DIR_PATH', \plugin_dir_path(__FILE__));
 
 /**
  * Require autoloader.

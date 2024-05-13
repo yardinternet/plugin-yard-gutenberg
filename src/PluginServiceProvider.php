@@ -30,6 +30,7 @@ class PluginServiceProvider
         $providers = [
             Menu\MenuManager::class,
             Patterns\PatternManager::class,
+			MyPatterns\MyPatternManager::class,
         ];
 
         foreach ($providers as $provider) {
