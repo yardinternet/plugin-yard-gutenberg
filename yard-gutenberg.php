@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * Plugin Name:       Yard Gutenberg
  * Description:       A collection of components for the WordPress Gutenberg editor.
- * Version:           0.1.9
+ * Version:           0.1.10
  * Author:            Yard | Digital Agency
  * Author URI:        https://www.yard.nl/
  *
@@ -17,10 +17,10 @@ declare(strict_types=1);
 * If this file is called directly, abort.
 */
 if (! defined('ABSPATH')) {
-    exit;
+	exit;
 }
 
-define('YARD_GUTENBERG_PLUGIN_VERSION', '0.1.9');
+define('YARD_GUTENBERG_PLUGIN_VERSION', '0.1.10');
 define('YARD_GUTENBERG_PLUGIN_DIR_URL', \plugin_dir_url(__FILE__));
 define('YARD_GUTENBERG_PLUGIN_DIR_PATH', \plugin_dir_path(__FILE__));
 
@@ -28,7 +28,7 @@ define('YARD_GUTENBERG_PLUGIN_DIR_PATH', \plugin_dir_path(__FILE__));
  * Require autoloader.
  */
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require __DIR__ . '/vendor/autoload.php';
+	require __DIR__ . '/vendor/autoload.php';
 }
 
 /*
@@ -39,6 +39,6 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
  * and wp_loaded action hooks.
  */
 \add_action('plugins_loaded', function () {
-    $serviceProvider = new \Yard\Gutenberg\PluginServiceProvider();
-    $serviceProvider->boot();
+	$serviceProvider = new \Yard\Gutenberg\PluginServiceProvider();
+	$serviceProvider->boot();
 }, 10);
