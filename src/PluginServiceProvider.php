@@ -15,11 +15,12 @@ class PluginServiceProvider
 
 		\add_action('enqueue_block_editor_assets', function () {
 			wp_register_script('yard-facetwp', null);
-			$facetWPSettings = json_decode(get_option('facetwp_settings', '{"facets":[], "templates":[]}'));
+
 			wp_localize_script('yard-facetwp', 'facetWP', [
-				'facets' => $facetWPSettings->facets,
-				'templates' => $facetWPSettings->templates,
+				'facets' => function_exists('FWP') ? FWP()->helper->get_facets() : [],
+				'templates' => function_exists('FWP') ? FWP()->helper->get_templates() : [],
 			]);
+
 			wp_enqueue_script('yard-facetwp');
 		});
 	}
