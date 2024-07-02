@@ -2,7 +2,7 @@
 Contributors:      Yard | Digital Agency
 Tags:              block
 Tested up to:      6.4
-Stable tag:        0.1.10
+Stable tag:        0.1.11
 License:           MIT License
 License URI:       https://opensource.org/licenses/MIT
 
