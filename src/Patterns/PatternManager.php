@@ -10,7 +10,9 @@ class PatternManager
     {
         \add_action('init', [new PatternPostType(), 'boot']);
         \add_action('admin_init', [$this, 'registerAsBlockPatterns']);
-        \add_action('after_setup_theme', [$this, 'removeCoreBlockPatterns']);
+		\add_filter('rest_dispatch_request',  [$this, 'disableNonThemePatterns'], 10, 3);
+		\add_filter('should_load_remote_block_patterns', '__return_false');
+		\remove_action('enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_assets'); // Disable installing patterns from pattern-directory
     }
 
     /**
@@ -90,11 +92,27 @@ class PatternManager
         return $patternPosts;
     }
 
-    /**
-     * Remove core block patterns.
-     */
-    public function removeCoreBlockPatterns(): void
-    {
-        \remove_theme_support('core-block-patterns');
-    }
+	/**
+	 * WordPress.org and plugins such as WooCommerce and Tribe Events add their own block
+	 * patterns. Generally, we only want clients to use only the patterns we provide.
+	 *
+	 * @see https://developer.wordpress.com/docs/developer-tools/block-patterns/disable-all-patterns/
+	 */
+	public function disableNonThemePatterns($dispatchResult, $request, $route)
+	{
+		if (!str_starts_with($route, '/wp/v2/block-patterns/patterns')) {
+			return $dispatchResult;
+		}
+
+		$patterns = \WP_Block_Patterns_Registry::get_instance()->get_all_registered();
+
+		if (!empty($patterns)) {
+			foreach ($patterns as $pattern) {
+				unregister_block_pattern($pattern['name']);
+			}
+			remove_theme_support('core-block-patterns');
+		}
+
+		return $dispatchResult;
+	}
 }
