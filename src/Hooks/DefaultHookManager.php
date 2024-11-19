@@ -8,10 +8,6 @@ class DefaultHookManager
 {
 	public function boot()
 	{
-		/**
-		 * @see https://make.wordpress.org/core/2021/07/01/block-styles-loading-enhancements-in-wordpress-5-8/
-		 */
-		\add_filter('should_load_separate_core_block_assets', '__return_true');
 		\add_filter('allowed_block_types_all', $this->registerCoreBlocks(...));
 		\add_filter('render_block_core/embed', $this->changeEmbedURL(...), 10, 2);
 		\add_action('enqueue_block_editor_assets', $this->enqueueDefaultHookScripts(...));
