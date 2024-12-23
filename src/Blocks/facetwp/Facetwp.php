@@ -13,7 +13,7 @@ class Facetwp
 				fn (array $facet) => FWP()->helper->get_facet_by_name($facet['name']),
 				$attributes['selectedFacets']
 			);
-			$attributes['selectedTemplate'] = FWP()->helper->get_template_by_name($attributes['selectedTemplate']['name']);
+			$attributes['selectedTemplate'] = FWP()->helper->get_template_by_name($attributes['selectedTemplate']['name'] ?? '');
 		}
 
 		return view('blocks.FacetWP.index', [
