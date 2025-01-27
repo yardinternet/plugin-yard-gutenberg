@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Yard\Gutenberg\Blocks\Facetwp;
+namespace Yard\Gutenberg\Blocks\facetwp;
 
-class Facetwp
+class FacetWP
 {
 	public function renderCallback(array $attributes)
 	{
