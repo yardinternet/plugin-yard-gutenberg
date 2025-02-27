@@ -29,5 +29,7 @@ Find a list of the options here: [TableOfContents options](https://github.com/ya
 Want to use it in a PHP template? Use the `do_blocks` function:
 
 ```php
-  {!! do_blocks('<!-- wp:yard/table-of-contents /-->') !!}
+  {!! do_blocks(
+      '<!-- wp:yard/table-of-contents --><div class="wp-block-yard-table-of-contents"><div id="js-yard-table-of-contents" data-include-subheading="true"></div></div><!-- /wp:yard/table-of-contents -->',
+  ) !!}
 ```
