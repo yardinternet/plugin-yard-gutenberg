@@ -1,6 +1,6 @@
 {
 	"name": "yard-gutenberg",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "A collection of components for the WordPress Gutenberg editor",
 	"author": "Yard | Digital Agency",
 	"license": "MIT License",
@@ -15,15 +15,15 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/prettier-config": "^4.11.0",
-		"@wordpress/scripts": "^30.4.0"
+		"@wordpress/prettier-config": "^4.18.0",
+		"@wordpress/scripts": "^30.11.0"
 	},
 	"dependencies": {
-		"@wordpress/api-fetch": "^7.11.0",
-		"@wordpress/blocks": "^14.0.0",
-		"@wordpress/components": "^28.11.0",
-		"@wordpress/element": "^6.11.0",
-		"@wordpress/server-side-render": "^5.11.0",
+		"@wordpress/api-fetch": "^7.18.0",
+		"@wordpress/blocks": "^14.7.0",
+		"@wordpress/components": "^29.4.0",
+		"@wordpress/element": "^6.18.0",
+		"@wordpress/server-side-render": "^5.18.0",
 		"@yardinternet/gutenberg-components": "^1.1.0",
 		"@yardinternet/gutenberg-hooks": "^1.0.4",
 		"@yardinternet/gutenberg-webpack-loaders": "^0.1.2",
