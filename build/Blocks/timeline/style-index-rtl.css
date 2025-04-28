@@ -1,1 +1,8 @@
-ul.wp-block-yard-timeline,ol.wp-block-yard-timeline{padding-right:0;list-style:none}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/Blocks/timeline/style.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+ul.wp-block-yard-timeline,
+ol.wp-block-yard-timeline {
+  padding-right: 0;
+  list-style: none;
+}
