@@ -10,7 +10,7 @@ class DefaultHookManager
 	{
 		\add_filter('allowed_block_types_all', $this->registerCoreBlocks(...));
 		\add_filter('render_block_core/embed', $this->changeEmbedURL(...), 10, 2);
-		\add_action('enqueue_block_editor_assets', $this->enqueueDefaultHookScripts(...));
+		\add_action('enqueue_block_editor_assets', $this->enqueueDefaultHookScripts(...), 11);
 	}
 
 	/**
