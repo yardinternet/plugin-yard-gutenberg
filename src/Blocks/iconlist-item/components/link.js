@@ -23,7 +23,7 @@ const ItemLink = ( {
 			onLinkChange={ handleLinkChange }
 			onLinkRemove={ handleLinkRemove }
 			onTextChange={ handleTextChange }
-			placeholder={ __( 'Begin met schrijven', 'yard-gutenberg' ) }
+			placeholder={ __( 'Voeg een link toe', 'yard-gutenberg' ) }
 		/>
 	);
 };
