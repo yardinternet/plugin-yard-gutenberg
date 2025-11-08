@@ -52,8 +52,7 @@ class DefaultHookManager
 			'gravityforms/form',
 		];
 
-
-		$whitelistedPrefixes = ['theme', 'yard', 'zorgsites', 'project', 'sage', 'acf'];
+		$whitelistedPrefixes = ['theme', 'yard', 'zorgsites', 'project', 'sage', 'acf', 'owc'];
 		$whitelistedPrefixes = apply_filters('yard::gutenberg/allowed-blocks-whitelisted-prefixes', $whitelistedPrefixes);
 
 		$allRegisteredBlocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
