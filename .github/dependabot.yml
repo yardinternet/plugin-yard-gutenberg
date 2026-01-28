@@ -1,0 +1,43 @@
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      actions:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: '(chore)'
+
+  # Maintain dependencies for npm
+  - package-ecosystem: 'npm'
+    registries: '*'
+    directories:
+      - '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      npm:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: '(chore)'
+    versioning-strategy: lockfile-only
+
+  # Maintain dependencies for Composer
+  - package-ecosystem: 'composer'
+    registries: '*'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      composer:
+        patterns:
+          - '*'
+    commit-message:
+      prefix: '(chore)'
+      include: 'scope'
+    versioning-strategy: lockfile-only
