@@ -30,6 +30,9 @@ const Edit = () => {
 		'core/separator',
 		'core/table',
 		'core/video',
+		'yard/icon',
+		'yard/iconlist',
+		'yard/iconlist-item',
 	] );
 
 	return (
