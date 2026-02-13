@@ -13,6 +13,8 @@ const defaultUnusedVariations = [
 	{ block: 'core/group', variation: 'group-stack' },
 	{ block: 'core/group', variation: 'group-columns' },
 	{ block: 'core/group', variation: 'group-grid' }, // Unregister to replace with custom attributes below
+	{ block: 'core/heading', variation: 'stretchy-heading' },
+	{ block: 'core/paragraph', variation: 'stretchy-paragraph' },
 ];
 
 const defaultRegisterVariations = [
