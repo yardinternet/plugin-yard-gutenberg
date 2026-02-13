@@ -11,10 +11,7 @@ module.exports = {
 	entry: {
 		...defaultConfig.entry(),
 		menu: [ './src/Menu/resources/scss/style.scss' ],
-		patterns: [
-			'./src/MyPatterns/resources/scss/style.scss',
-			'./src/MyPatterns/resources/js/index.js',
-		],
+		patterns: [ './src/MyPatterns/resources/scss/style.scss' ],
 		hooks: [ './src/Hooks/resources/js/index.js' ],
 	},
 };
