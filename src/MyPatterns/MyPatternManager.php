@@ -18,7 +18,6 @@ class MyPatternManager
 		\add_filter('manage_wp_block_posts_custom_column', [$this, 'addPatternCategoryColumnContent'], 10, 2);
 		\add_filter('register_taxonomy_args', [$this, 'changePatternCategoryTaxonomyArgs'], 10, 2);
 		\add_action('admin_enqueue_scripts', [$this, 'enqueuePatternStyles']);
-		\add_action('enqueue_block_editor_assets', [$this, 'enqueuePatternScripts']);
 	}
 
 	/**
@@ -150,22 +149,6 @@ class MyPatternManager
 			YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-patterns.css',
 			[],
 			YARD_GUTENBERG_PLUGIN_VERSION
-		);
-	}
-
-	/**
-	 * Enqueues scripts for the my patterns functionality.
-	 */
-	public function enqueuePatternScripts(): void
-	{
-		$path = YARD_GUTENBERG_PLUGIN_DIR_PATH . 'build/patterns.asset.php';
-		$scriptAsset = file_exists($path) ? require $path : ['dependencies' => [], 'version' => round(microtime(true))];
-
-		\wp_enqueue_script(
-			'yard-gutenberg-patterns',
-			YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/patterns.js',
-			$scriptAsset['dependencies'],
-			$scriptAsset['version']
 		);
 	}
 }
