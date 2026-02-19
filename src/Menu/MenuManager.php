@@ -9,7 +9,7 @@ class MenuManager
 	public function boot()
 	{
 		\add_action('admin_menu', [$this, 'registerAdminMenu']);
-		\add_action('admin_enqueue_scripts', [$this, 'enqueueMenuAssets']);
+		\add_action('enqueue_block_assets', [$this, 'enqueueMenuAssets']);
 		\add_filter('parent_file', [$this, 'highlightTaxSubMenu']);
 	}
 
@@ -75,11 +75,13 @@ class MenuManager
 
 	public function enqueueMenuAssets()
 	{
-		\wp_enqueue_style(
-			'yard-gutenberg-admin',
-			YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-menu.css',
-			[],
-			YARD_GUTENBERG_PLUGIN_VERSION
-		);
+		if (is_admin()) {
+			\wp_enqueue_style(
+				'yard-gutenberg-admin',
+				YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-menu.css',
+				[],
+				YARD_GUTENBERG_PLUGIN_VERSION
+			);
+		}
 	}
 }

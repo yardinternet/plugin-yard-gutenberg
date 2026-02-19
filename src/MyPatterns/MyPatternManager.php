@@ -17,7 +17,7 @@ class MyPatternManager
 		\add_filter('manage_wp_block_posts_custom_column', [$this, 'addPatternStatusColumnContent'], 10, 2);
 		\add_filter('manage_wp_block_posts_custom_column', [$this, 'addPatternCategoryColumnContent'], 10, 2);
 		\add_filter('register_taxonomy_args', [$this, 'changePatternCategoryTaxonomyArgs'], 10, 2);
-		\add_action('admin_enqueue_scripts', [$this, 'enqueuePatternStyles']);
+		\add_action('enqueue_block_assets', [$this, 'enqueuePatternStyles']);
 	}
 
 	/**
@@ -144,11 +144,13 @@ class MyPatternManager
 	 */
 	public function enqueuePatternStyles(): void
 	{
-		\wp_enqueue_style(
-			'yard-gutenberg-patterns',
-			YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-patterns.css',
-			[],
-			YARD_GUTENBERG_PLUGIN_VERSION
-		);
+		if (is_admin()) {
+			\wp_enqueue_style(
+				'yard-gutenberg-patterns',
+				YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-patterns.css',
+				[],
+				YARD_GUTENBERG_PLUGIN_VERSION
+			);
+		}
 	}
 }
