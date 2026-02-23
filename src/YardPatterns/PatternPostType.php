@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Yard\Gutenberg\Patterns;
+namespace Yard\Gutenberg\YardPatterns;
 
 class PatternPostType
 {

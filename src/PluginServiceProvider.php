@@ -31,10 +31,10 @@ class PluginServiceProvider
 	public function bootProviders(): void
 	{
 		$providers = [
-			Menu\MenuManager::class,
-			Patterns\PatternManager::class,
-			MyPatterns\MyPatternManager::class,
 			Hooks\DefaultHookManager::class,
+			MyPatterns\MyPatternManager::class,
+			Patterns\PatternManager::class,
+			YardPatterns\YardPatternsManager::class,
 		];
 
 		foreach ($providers as $provider) {
