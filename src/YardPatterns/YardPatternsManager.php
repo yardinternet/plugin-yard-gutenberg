@@ -6,21 +6,31 @@ namespace Yard\Gutenberg\YardPatterns;
 
 class YardPatternsManager
 {
+	protected $isEnabled = true;
+
 	public function boot()
 	{
-		\add_action('init', function () {
-			if (! apply_filters('yard::gutenberg/enable-patterns', true)) {
-				return;
-			}
+		\add_action('init', [$this, 'setYardPatternsEnabled']);
+		\add_action('init', [$this, 'registerYardPatternsPostType']);
+		\add_action('admin_menu', [$this, 'registerAdminMenu']);
+		\add_action('admin_enqueue_scripts', [$this, 'enqueueMenuAssets']);
+		\add_filter('parent_file', [$this, 'highlightTaxSubMenu']);
+		\add_action('admin_init', [$this, 'registerAsBlockPatterns']);
+	}
 
-			$patternPostType = new PatternPostType();
-			$patternPostType->boot();
+	public function setYardPatternsEnabled(): void
+	{
+		$this->isEnabled = apply_filters('yard::gutenberg/enable-patterns', true);
+	}
 
-			\add_action('admin_menu', [$this, 'registerAdminMenu']);
-			\add_action('enqueue_block_assets', [$this, 'enqueueMenuAssets']);
-			\add_filter('parent_file', [$this, 'highlightTaxSubMenu']);
-			\add_action('admin_init', [$this, 'registerAsBlockPatterns']);
-		});
+	public function registerYardPatternsPostType(): void
+	{
+		if (! $this->isEnabled) {
+			return;
+		}
+
+		$patternPostType = new PatternPostType();
+		$patternPostType->boot();
 	}
 
 	/**
@@ -28,6 +38,10 @@ class YardPatternsManager
 	 */
 	public function registerAdminMenu(): void
 	{
+		if (! $this->isEnabled) {
+			return;
+		}
+
 		add_menu_page(
 			__('Yard Patronen', 'yard-gutenberg'),
 			__('Yard Patronen', 'yard-gutenberg'),
@@ -70,29 +84,35 @@ class YardPatternsManager
 		}
 	}
 
-	public function highlightTaxSubMenu($parent_file)
+	public function highlightTaxSubMenu(string $parentFile): string
 	{
-		global $submenu_file, $current_screen, $pagenow;
+		if (! $this->isEnabled) {
+			return $parentFile;
+		}
+
+		global $submenu_file, $current_screen;
 		if ('yard-pattern' == $current_screen->post_type) {
 			if ('yard-pattern-category' == $current_screen->taxonomy) {
 				$submenu_file = 'edit-tags.php?taxonomy=yard-pattern-category&post_type=yard-pattern';
 			}
-			$parent_file = 'edit.php?post_type=yard-pattern';
+			$parentFile = 'edit.php?post_type=yard-pattern';
 		}
 
-		return $parent_file;
+		return $parentFile;
 	}
 
-	public function enqueueMenuAssets()
+	public function enqueueMenuAssets(): void
 	{
-		if (is_admin()) {
-			\wp_enqueue_style(
-				'yard-gutenberg-admin',
-				YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-yard-patterns.css',
-				[],
-				YARD_GUTENBERG_PLUGIN_VERSION
-			);
+		if (! $this->isEnabled) {
+			return;
 		}
+
+		\wp_enqueue_style(
+			'yard-gutenberg-admin',
+			YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/style-yard-patterns.css',
+			[],
+			YARD_GUTENBERG_PLUGIN_VERSION
+		);
 	}
 
 	/**
@@ -100,6 +120,10 @@ class YardPatternsManager
 	 */
 	public function registerAsBlockPatterns(): void
 	{
+		if (! $this->isEnabled) {
+			return;
+		}
+
 		$this->registerTermsAsCategories();
 		$this->registerPostsAsBlockPatterns();
 	}
@@ -111,7 +135,7 @@ class YardPatternsManager
 	{
 		$terms = \get_terms('yard-pattern-category', ['orderby' => 'name', 'order' => 'asc', 'hide_empty' => true]);
 
-		if (empty($terms) || \is_wp_error($terms)) {
+		if (\is_wp_error($terms) || 0 === count($terms)) {
 			return;
 		}
 
