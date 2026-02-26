@@ -11,6 +11,7 @@ const PrependButtonBlockAppender = ( { rootClientId } ) => {
 	const { insertBlocks } = useDispatch( 'core/block-editor' );
 
 	const handleClick = () => {
+		// TODO: Change this so there is a choice between timeline-item and timeline-item-collapse (if allowed)
 		const newBlock = createBlock( 'yard/timeline-item' );
 		insertBlocks( newBlock, 0, rootClientId );
 	};

@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "yard/timeline-item-collapse",
+	"version": "0.1.0",
+	"title": "Tijdlijn item uitklapbaar",
+	"category": "yard",
+	"description": "Een nieuwe uitklapbare stap van de tijdlijn.",
+	"parent": [ "yard/timeline" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".wp-block-yard-timeline-item-collapse__title"
+		},
+		"titleHeadingLevel": {
+			"type": "string",
+			"default": "h3"
+		},
+		"subtitle": {
+			"type": "string",
+			"source": "html",
+			"selector": ".wp-block-yard-timeline-item-collapse__subtitle"
+		},
+		"hasInnerBlocks": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"html": false
+	},
+	"textdomain": "yard",
+	"editorScript": "file:./index.js"
+}

@@ -19,8 +19,9 @@ const Edit = ( props ) => {
 
 	const TEMPLATE = applyFilters( 'yard.timeline-template', [
 		[ 'yard/timeline-item' ],
+		['yard/timeline-item-collapse'],
 	] );
-	const ALLOWED_BLOCKS = [ 'yard/timeline-item' ];
+	const ALLOWED_BLOCKS = [ 'yard/timeline-item', 'yard/timeline-item-collapse' ];
 
 	return (
 		<List { ...useBlockProps() }>
