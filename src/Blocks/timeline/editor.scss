@@ -1,12 +1,31 @@
 @use '../mixins' as *;
 
-.wp-block-yard-timeline .block-list-appender {
-	position: static;
-	margin-bottom: 1rem;
-}
+.wp-block-yard-timeline {
+	&,
+	> .block-editor-inserter {
+		> .block-editor-button-block-appender {
+			@include button-block-appender;
 
-.wp-block-yard-timeline .block-editor-button-block-appender {
-	@include button-block-appender;
+			&:has( + .block-editor-inner-blocks ) {
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
+	> .block-editor-inserter {
+		width: 100%;
+
+		&:has( + .block-editor-inner-blocks ) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	> .block-editor-inner-blocks {
+		+ .block-editor-inserter,
+		+ .block-editor-button-block-appender {
+			margin-top: 1rem;
+		}
+	}
 }
 
 ul.wp-block.wp-block-yard-timeline,
