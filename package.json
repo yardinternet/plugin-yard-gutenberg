@@ -19,8 +19,8 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^31.5.0",
-		"@yardinternet/prettier-config": "^2.0.3",
-		"@yardinternet/toolkit": "^2.0.4",
+		"@yardinternet/prettier-config": "^2.0.4",
+		"@yardinternet/toolkit": "^2.0.8",
 		"prettier": "npm:wp-prettier@^3.0.3"
 	},
 	"dependencies": {
