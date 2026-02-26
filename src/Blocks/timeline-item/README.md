@@ -16,6 +16,8 @@ addFilter( 'yard.timeline-item-allowed-blocks', 'yard', ( allowedBlocks ) => [
 Want to change the starting template of a timeline item, use this filter.
 
 ```JS
+import { addFilter } from '@wordpress/hooks';
+
 addFilter( 'yard.timeline-item-template', 'yard', () => [
  [ 'yard/icon' ],
  [ 'core/heading', { level: 3, placeholder: 'Koptekst H3' } ],

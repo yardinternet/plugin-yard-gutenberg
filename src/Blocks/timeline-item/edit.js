@@ -4,36 +4,21 @@
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 import { applyFilters } from '@wordpress/hooks';
 
+/**
+ * Internal dependencies
+ */
+import { TIMELINE_ITEM_ALLOWED_BLOCKS } from '../constants';
+
 const Edit = () => {
 	const TEMPLATE = applyFilters( 'yard.timeline-item-template', [
 		[ 'core/heading', { level: 3, placeholder: 'Koptekst H3' } ],
 		[ 'core/paragraph', { placeholder: 'Voeg de inhoud toe' } ],
 	] );
 
-	const ALLOWED_BLOCKS = applyFilters( 'yard.timeline-item-allowed-blocks', [
-		'core/audio',
-		'core/block',
-		'core/button',
-		'core/buttons',
-		'core/cover',
-		'core/embed',
-		'core/file',
-		'core/gallery',
-		'core/group',
-		'core/heading',
-		'core/image',
-		'core/list-item',
-		'core/list',
-		'core/media-text',
-		'core/paragraph',
-		'core/quote',
-		'core/separator',
-		'core/table',
-		'core/video',
-		'yard/icon',
-		'yard/iconlist',
-		'yard/iconlist-item',
-	] );
+	const ALLOWED_BLOCKS = applyFilters(
+		'yard.timeline-item-allowed-blocks',
+		TIMELINE_ITEM_ALLOWED_BLOCKS
+	);
 
 	return (
 		<li { ...useBlockProps() }>
