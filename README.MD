@@ -1,6 +1,6 @@
 # WP Gutenberg
 
-A WordPress plugin with a collection of components for the Gutenberg editor
+A WordPress plugin with a collection of blocks and features for the Gutenberg editor.
 
 ## 👷‍♀️ Development
 
@@ -173,4 +173,3 @@ addFilter(
 ## About us
 
 [![banner](https://raw.githubusercontent.com/yardinternet/.github/refs/heads/main/profile/assets/small-banner-github.svg)](https://www.yard.nl/werken-bij/)
-
