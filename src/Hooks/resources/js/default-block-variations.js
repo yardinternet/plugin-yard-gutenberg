@@ -78,17 +78,17 @@ const defaultRegisterVariations = [
 	},
 ];
 
-// Allow project-level overrides
-const unusedVariations = applyFilters(
-	'yard.default-unused-variations',
-	defaultUnusedVariations
-);
-const registerVariations = applyFilters(
-	'yard.default-registered-variations',
-	defaultRegisterVariations
-);
-
 domReady( () => {
+	// Allow project-level overrides
+	const unusedVariations = applyFilters(
+		'yard.default-unused-variations',
+		defaultUnusedVariations
+	);
+	const registerVariations = applyFilters(
+		'yard.default-registered-variations',
+		defaultRegisterVariations
+	);
+
 	registerVariations.forEach( ( { block, ...variation } ) => {
 		registerBlockVariation( block, variation );
 	} );
