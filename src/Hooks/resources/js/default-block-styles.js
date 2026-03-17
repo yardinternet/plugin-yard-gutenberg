@@ -16,13 +16,13 @@ const defaultUnregisterStyles = [
 	{ block: 'core/quote', styles: [ 'large', 'default', 'plain' ] },
 ];
 
-// Allow project-level overrides
-const unregisterStyles = applyFilters(
-	'yard.default-unused-styles',
-	defaultUnregisterStyles
-);
-
 domReady( () => {
+	// Allow project-level overrides
+	const unregisterStyles = applyFilters(
+		'yard.default-unused-styles',
+		defaultUnregisterStyles
+	);
+
 	unregisterStyles.forEach( ( { block, styles } ) => {
 		styles.forEach( ( style ) => unregisterBlockStyle( block, style ) );
 	} );
