@@ -2,6 +2,8 @@
  * WordPress dependencies
  */
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { store as blocksStore } from '@wordpress/blocks';
+import { useSelect } from '@wordpress/data';
 import { applyFilters } from '@wordpress/hooks';
 
 /**
@@ -17,14 +19,32 @@ const Edit = ( props ) => {
 
 	const List = isOrderedList ? 'ol' : 'ul';
 
-	const TEMPLATE = applyFilters( 'yard.timeline-template', [
-		[ 'yard/timeline-item' ],
-	] );
-	// Make sure both are registered in your project to use both.
+	const { hasTimelineItemRegistered, hasTimelineItemCollapseRegistered } = useSelect(
+		( select ) => {
+			const { getBlockType } = select( blocksStore );
+
+			return {
+				hasTimelineItemRegistered: getBlockType( 'yard/timeline-item' ) !== undefined,
+				hasTimelineItemCollapseRegistered: getBlockType( 'yard/timeline-item-collapse' ) !== undefined,
+			};
+		},
+		[]
+	);
+
 	const ALLOWED_BLOCKS = [
-		'yard/timeline-item',
-		'yard/timeline-item-collapse',
-	];
+		hasTimelineItemRegistered && 'yard/timeline-item',
+		hasTimelineItemCollapseRegistered && 'yard/timeline-item-collapse',
+	].filter( Boolean );
+
+	let fallbackTemplate = [];
+
+	if ( hasTimelineItemRegistered ) {
+		fallbackTemplate = [ [ 'yard/timeline-item' ] ];
+	} else if ( hasTimelineItemCollapseRegistered ) {
+		fallbackTemplate = [ [ 'yard/timeline-item-collapse' ] ];
+	}
+
+	const TEMPLATE = applyFilters( 'yard.timeline-template', fallbackTemplate );
 
 	return (
 		<List { ...useBlockProps() }>
