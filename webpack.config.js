@@ -12,6 +12,9 @@ module.exports = {
 		...defaultConfig.entry(),
 		'yard-patterns': [ './src/YardPatterns/resources/scss/style.scss' ],
 		patterns: [ './src/MyPatterns/resources/scss/style.scss' ],
-		hooks: [ './src/Hooks/resources/js/index.js' ],
+		hooks: [
+			'./src/Hooks/resources/js/index.js',
+			'./src/Hooks/resources/scss/editor.scss',
+		],
 	},
 };

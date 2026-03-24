@@ -10,7 +10,7 @@ class DefaultHookManager
 	{
 		\add_filter('allowed_block_types_all', $this->registerCoreBlocks(...));
 		\add_filter('render_block_core/embed', $this->changeEmbedURL(...), 10, 2);
-		\add_action('enqueue_block_editor_assets', $this->enqueueDefaultHookScripts(...), 11);
+		\add_action('enqueue_block_editor_assets', $this->enqueueDefaultHookAssets(...), 11);
 	}
 
 	/**
@@ -71,9 +71,9 @@ class DefaultHookManager
 	}
 
 	/**
-	 * Enqueue scripts for hooks.
+	 * Enqueue scripts and styles for hooks.
 	 */
-	public function enqueueDefaultHookScripts(): void
+	public function enqueueDefaultHookAssets(): void
 	{
 		$path = YARD_GUTENBERG_PLUGIN_DIR_PATH . 'build/hooks.asset.php';
 		$scriptAsset = file_exists($path) ? require $path : ['dependencies' => [], 'version' => round(microtime(true))];
@@ -84,6 +84,13 @@ class DefaultHookManager
 			$scriptAsset['dependencies'],
 			$scriptAsset['version'],
 			true
+		);
+
+		\wp_enqueue_style(
+			'yard-gutenberg-hooks',
+			YARD_GUTENBERG_PLUGIN_DIR_URL . 'build/hooks.css',
+			[],
+			YARD_GUTENBERG_PLUGIN_VERSION
 		);
 	}
 
