@@ -1,0 +1,9 @@
+/* Only show blocks valid for current cursor position */
+.block-editor-inserter__all-blocks {
+	display: none;
+}
+
+/* Remove the double border now the all-blocks list is hidden */
+.block-editor-inserter__insertable-blocks-at-selection {
+	border-bottom: 0;
+}
