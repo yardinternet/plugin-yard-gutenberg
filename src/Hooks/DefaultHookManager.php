@@ -112,7 +112,14 @@ class DefaultHookManager
 		if (! $tagProcessor->next_tag('iframe')) {
 			return $content;
 		}
-		$src = html_entity_decode($tagProcessor->get_attribute('src'));
+
+		$rawSrc = $tagProcessor->get_attribute('src');
+
+		if (! is_string($rawSrc) || '' === $rawSrc) {
+			return $content;
+		}
+
+		$src = html_entity_decode($rawSrc);
 
 		switch ($block['attrs']['providerNameSlug'] ?? '') {
 			case 'youtube':
