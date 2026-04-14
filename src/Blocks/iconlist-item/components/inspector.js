@@ -12,7 +12,7 @@ import { IconPickerControlInspector } from '@yardinternet/gutenberg-components';
 
 const Inspector = ( props ) => {
 	const { setAttributes, attributes } = props;
-	const { icon, iconAltText } = attributes;
+	const { icon, iconSVG, iconAltText } = attributes;
 
 	return (
 		<InspectorControls>
@@ -25,6 +25,11 @@ const Inspector = ( props ) => {
 								icon: result,
 							} );
 						}
+					} }
+					onChangeSVG={ ( result ) => {
+						setAttributes( {
+							iconSVG: result,
+						} );
 					} }
 				/>
 				<TextControl

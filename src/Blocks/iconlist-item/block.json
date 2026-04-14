@@ -11,6 +11,10 @@
 			"type": "string",
 			"default": "fa-classic fa-light fa-envelope"
 		},
+		"iconSVG": {
+			"type": "string",
+			"default": ""
+		},
 		"iconAltText": {
 			"type": "string",
 			"default": ""
@@ -28,7 +32,7 @@
 			"default": false
 		}
 	},
-	"parent": ["yard/iconlist"],
+	"parent": [ "yard/iconlist" ],
 	"supports": {
 		"align": false,
 		"color": {

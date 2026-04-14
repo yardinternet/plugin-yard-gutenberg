@@ -11,6 +11,10 @@
       "type": "string",
       "default": "fa-classic fa-light fa-envelope"
     },
+    "iconSVG": {
+      "type": "string",
+      "default": ""
+    },
     "iconAltText": {
       "type": "string",
       "default": ""
