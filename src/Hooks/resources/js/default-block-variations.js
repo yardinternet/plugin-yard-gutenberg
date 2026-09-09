@@ -73,6 +73,7 @@ const defaultRegisterVariations = [
 			layout: {
 				type: 'grid',
 				columnCount: 3,
+				minimumColumnWidth: '325px',
 			},
 		},
 	},
