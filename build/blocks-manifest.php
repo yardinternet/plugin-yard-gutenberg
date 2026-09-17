@@ -5,7 +5,7 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/collapse',
-		'version' => '0.1.0',
+		'version' => '0.2.0',
 		'title' => 'Uitklap',
 		'category' => 'yard',
 		'description' => 'Voeg uitklapbare blokken toe om inhoud in en uit te kunnen vouwen.',
@@ -35,13 +35,14 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'viewScript' => 'file:./frontend.js'
+		'viewScript' => 'file:./frontend.js',
+		'render' => 'file:./render.php'
 	),
 	'collapse-item' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/collapse-item',
-		'version' => '0.2.0',
+		'version' => '0.3.0',
 		'title' => 'Uitklap item',
 		'category' => 'yard',
 		'description' => 'Uitklapbaar component.',
@@ -96,13 +97,14 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css'
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
 	),
 	'counting-number' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/counting-number',
-		'version' => '0.0.2',
+		'version' => '0.1.0',
 		'title' => 'Oplopende teller',
 		'category' => 'yard',
 		'description' => 'Toont een oplopende cijfer.',
@@ -144,7 +146,8 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'viewScript' => 'file:./frontend.js'
+		'viewScript' => 'file:./frontend.js',
+		'render' => 'file:./render.php'
 	),
 	'facetwp' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -187,7 +190,7 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/icon',
-		'version' => '0.1.0',
+		'version' => '0.2.0',
 		'title' => 'Icoon',
 		'category' => 'yard',
 		'description' => 'Voeg een Font Awesome icoon toe.',
@@ -219,13 +222,14 @@ return array(
 		),
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css'
+		'editorStyle' => 'file:./index.css',
+		'render' => 'file:./render.php'
 	),
 	'iconlist' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/iconlist',
-		'version' => '0.1.1',
+		'version' => '0.2.0',
 		'title' => 'Iconenlijst',
 		'category' => 'yard',
 		'description' => 'Voeg een lijst met Font Awesome iconen toe. Verander de tekst en iconen afzonderlijk van elkaar.',
@@ -254,13 +258,14 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css'
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
 	),
 	'iconlist-item' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/iconlist-item',
-		'version' => '0.1.1',
+		'version' => '0.2.0',
 		'title' => 'Iconenlijst item',
 		'category' => 'yard',
 		'description' => 'Een enkele iconenlijst item.',
@@ -307,7 +312,8 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css'
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
 	),
 	'slide' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -397,13 +403,14 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'viewScript' => 'file:./view.js'
+		'viewScript' => 'file:./view.js',
+		'render' => 'file:./render.php'
 	),
 	'tabs' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/tabs',
-		'version' => '0.1.1',
+		'version' => '0.2.0',
 		'title' => 'Tabbladen',
 		'category' => 'yard',
 		'description' => 'Groepeer gemakkelijk content in verschillende tabbladen.',
@@ -440,13 +447,14 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'viewScript' => 'file:./frontend.js',
-		'style' => 'file:./style-index.css'
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
 	),
 	'tabs-item' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/tabs-item',
-		'version' => '0.1.1',
+		'version' => '0.2.0',
 		'title' => 'Tabblad',
 		'category' => 'yard',
 		'description' => 'Tabblad item.',
@@ -484,13 +492,14 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css'
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
 	),
 	'timeline' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/timeline',
-		'version' => '0.2.0',
+		'version' => '0.3.0',
 		'title' => 'Tijdlijn',
 		'category' => 'yard',
 		'description' => 'Creeërt een tijdlijn wrapper waarbij elk blokje een nieuwe stap is.',
@@ -519,13 +528,14 @@ return array(
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
-		'style' => 'file:./style-index.css'
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
 	),
 	'timeline-item' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/timeline-item',
-		'version' => '0.1.0',
+		'version' => '0.2.0',
 		'title' => 'Tijdlijn item',
 		'category' => 'yard',
 		'description' => 'Een nieuwe stap van de tijdlijn.',
@@ -544,13 +554,14 @@ return array(
 			'html' => false
 		),
 		'textdomain' => 'yard',
-		'editorScript' => 'file:./index.js'
+		'editorScript' => 'file:./index.js',
+		'render' => 'file:./render.php'
 	),
 	'timeline-item-collapse' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/timeline-item-collapse',
-		'version' => '0.1.0',
+		'version' => '0.2.0',
 		'title' => 'Tijdlijn item uitklapbaar',
 		'category' => 'yard',
 		'description' => 'Een nieuwe uitklapbare stap van de tijdlijn.',
@@ -560,8 +571,7 @@ return array(
 		'attributes' => array(
 			'title' => array(
 				'type' => 'string',
-				'source' => 'html',
-				'selector' => '.wp-block-yard-timeline-item-collapse__title',
+				'default' => '',
 				'role' => 'content'
 			),
 			'headingLevel' => array(
@@ -570,15 +580,10 @@ return array(
 			),
 			'subtitle' => array(
 				'type' => 'string',
-				'source' => 'html',
-				'selector' => '.wp-block-yard-timeline-item-collapse__subtitle',
+				'default' => '',
 				'role' => 'content'
 			),
 			'isOpen' => array(
-				'type' => 'boolean',
-				'default' => false
-			),
-			'hasInnerBlocks' => array(
 				'type' => 'boolean',
 				'default' => false
 			)
@@ -591,6 +596,7 @@ return array(
 			'html' => false
 		),
 		'textdomain' => 'yard',
-		'editorScript' => 'file:./index.js'
+		'editorScript' => 'file:./index.js',
+		'render' => 'file:./render.php'
 	)
 );
