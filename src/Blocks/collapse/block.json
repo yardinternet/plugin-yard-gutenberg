@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "yard/collapse",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"title": "Uitklap",
 	"category": "yard",
 	"description": "Voeg uitklapbare blokken toe om inhoud in en uit te kunnen vouwen.",
@@ -29,5 +29,6 @@
 	"textdomain": "yard",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"viewScript": "file:./frontend.js"
+	"viewScript": "file:./frontend.js",
+	"render": "file:./render.php"
 }
