@@ -5,7 +5,7 @@ import metadata from './block.json';
 import save from './save';
 
 export default [
-	// v0.1.0 - includeSubheading defaulted to true, now its false
+// v0.1.0 - includeSubheading defaulted to true, now it's false
 	{
 		attributes: {
 			...metadata.attributes,
