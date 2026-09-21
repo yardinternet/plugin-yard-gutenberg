@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "yard/slide",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"title": "Slide",
 	"category": "yard",
 	"description": "Een enkele slide binnen een slider blok.",
@@ -15,5 +15,6 @@
 	},
 	"textdomain": "yard",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css"
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php"
 }
