@@ -371,7 +371,7 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/table-of-contents',
-		'version' => '0.1.0',
+		'version' => '0.2.0',
 		'title' => 'Inhoudsopgave',
 		'category' => 'yard',
 		'description' => 'Toont een inhoudsopgave op basis van de koppen op de pagina.',
@@ -383,7 +383,7 @@ return array(
 		'attributes' => array(
 			'includeSubheading' => array(
 				'type' => 'boolean',
-				'default' => true
+				'default' => false
 			),
 			'contentSelector' => array(
 				'type' => 'string',
