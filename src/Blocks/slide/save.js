@@ -1,18 +1,8 @@
 /**
  * WordPress dependencies
  */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
-const Save = () => {
-	const blockProps = useBlockProps.save( {
-		className: 'splide__slide',
-	} );
-
-	return (
-		<li { ...blockProps }>
-			<InnerBlocks.Content />
-		</li>
-	);
-};
+const Save = () => <InnerBlocks.Content />;
 
 export default Save;

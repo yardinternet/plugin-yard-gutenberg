@@ -319,7 +319,7 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/slide',
-		'version' => '0.1.0',
+		'version' => '0.2.0',
 		'title' => 'Slide',
 		'category' => 'yard',
 		'description' => 'Een enkele slide binnen een slider blok.',
@@ -336,13 +336,14 @@ return array(
 		),
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css'
+		'editorStyle' => 'file:./index.css',
+		'render' => 'file:./render.php'
 	),
 	'slider' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/slider',
-		'version' => '0.1.0',
+		'version' => '0.2.0',
 		'title' => 'Slider',
 		'category' => 'yard',
 		'description' => 'Voeg slider toe.',
@@ -371,7 +372,8 @@ return array(
 		),
 		'textdomain' => 'yard',
 		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css'
+		'editorStyle' => 'file:./index.css',
+		'render' => 'file:./render.php'
 	),
 	'table-of-contents' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
