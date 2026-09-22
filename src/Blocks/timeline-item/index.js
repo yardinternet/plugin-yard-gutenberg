@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+import { InnerBlocks } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 
 /**
@@ -8,7 +9,6 @@ import { registerBlockType } from '@wordpress/blocks';
  */
 import deprecated from './deprecated';
 import edit from './edit';
-import save from './save';
 import icon from './icon';
 import metadata from './block.json';
 
@@ -16,5 +16,5 @@ registerBlockType( metadata, {
 	deprecated,
 	edit,
 	icon,
-	save,
+	save: () => <InnerBlocks.Content />,
 } );
