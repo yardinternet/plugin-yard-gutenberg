@@ -11,6 +11,7 @@ class PluginServiceProvider
 		$this->bootProviders();
 
 		\add_filter('block_categories_all', [$this, 'addBlockCategory']);
+		\add_filter('render_block_data', [Blocks\Render::class, 'stripLegacySave']);
 		\add_action('init', [$this, 'registerBlocks']);
 
 		\add_action('enqueue_block_editor_assets', function () {
