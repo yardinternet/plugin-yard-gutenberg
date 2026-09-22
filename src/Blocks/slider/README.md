@@ -4,6 +4,25 @@ A content slider using SplideJS.
 
 Styling a slider depends greatly on the theme. All this block does is put the `innerContent` of the slides into the right HTML so SplideJS can make a slider out of it.
 
+## Usage in Blade
+
+```blade
+<x-block-yard-slider align="full">
+    <x-block-yard-slide>
+        <p>Slide 1</p>
+    </x-block-yard-slide>
+    <x-block-yard-slide>
+        <p>Slide 2</p>
+    </x-block-yard-slide>
+</x-block-yard-slider>
+```
+
+### Attributes
+
+| Attribute | Type     | Description                                    |
+| --------- | -------- | ---------------------------------------------- |
+| `align`   | `string` | `wide` or `full` alignment class. Default `wide`. |
+
 ## Installation
 
 1. Install splide `npm install @splidejs/splide`
