@@ -7,7 +7,6 @@ use Yard\Gutenberg\Blocks\Render;
 $heading = Render::headingTag($attributes['headingLevel'] ?? null);
 $title = wp_kses_post($attributes['title'] ?? '');
 $subtitle = wp_kses_post($attributes['subtitle'] ?? '');
-$inner = Render::innerContent($block, $content);
 
 $titleContent = '';
 
@@ -23,10 +22,10 @@ if ('' !== $subtitle) {
 	<span class="wp-block-yard-timeline-item__line"></span>
 	<span class="wp-block-yard-timeline-item__dot"></span>
 	<div class="wp-block-yard-timeline-item__content">
-		<?php if ('' !== trim($inner)) : ?>
+		<?php if ('' !== trim($content)) : ?>
 			<details class="wp-block-yard-timeline-item-collapse__details"<?php echo ! empty($attributes['isOpen']) ? ' open' : ''; ?>>
 				<summary class="wp-block-yard-timeline-item-collapse__summary"><?php echo $titleContent; ?></summary>
-				<div class="wp-block-yard-timeline-item-collapse__inner-content"><?php echo $inner; ?></div>
+				<div class="wp-block-yard-timeline-item-collapse__inner-content"><?php echo $content; ?></div>
 			</details>
 		<?php else : ?>
 			<?php echo $titleContent; ?>

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Yard\Gutenberg\Blocks;
 
-use WP_Block;
-
 final class Render
 {
 	public static function icon(array $attributes): string
@@ -16,7 +14,7 @@ final class Render
 			return '';
 		}
 
-		$title = ($attributes['iconAltText'] ?? '') !== ''
+		$title = '' !== ($attributes['iconAltText'] ?? '')
 			? sprintf(' title="%s"', esc_attr($attributes['iconAltText']))
 			: '';
 
@@ -28,21 +26,44 @@ final class Render
 	}
 
 	/**
-	 * Posts saved before the block became dynamic still carry the JS-saved wrapper in
-	 * innerContent, so `$content` would double-wrap. Blade slots have no inner blocks.
+	 * Drops the pre-SSR save markup so `$content` is not wrapped twice:
+	 * `<!-- wp:yard/collapse --><div class="wp-block-yard-collapse">…<!-- /wp:yard/collapse -->`
+	 * becomes
+	 * `<!-- wp:yard/collapse -->…<!-- /wp:yard/collapse -->`.
 	 */
-	public static function innerContent(WP_Block $block, string $content): string
+	public static function stripLegacySave(array $parsedBlock): array
 	{
-		$savedMarkup = trim(implode('', array_filter($block->parsed_block['innerContent'] ?? [], 'is_string')));
+		$name = $parsedBlock['blockName'] ?? '';
 
-		if ('' === $savedMarkup || 0 === count($block->inner_blocks)) {
-			return $content;
+		if (0 !== strpos($name, 'yard/')) {
+			return $parsedBlock;
 		}
 
-		return implode('', array_map(
-			fn (WP_Block $inner) => $inner->render(),
-			iterator_to_array($block->inner_blocks)
-		));
+		$strings = array_filter($parsedBlock['innerContent'] ?? [], 'is_string');
+		$first = trim((string) reset($strings));
+
+		if (! preg_match('/^<[a-z][a-z0-9]*\s[^>]*\bclass="([^"]*)"/i', $first, $match)) {
+			return $parsedBlock;
+		}
+
+		if (! in_array('wp-block-' . str_replace('/', '-', $name), preg_split('/\s+/', $match[1]), true)) {
+			return $parsedBlock;
+		}
+
+		if ('yard/timeline-item-collapse' === $name) {
+			$html = implode('', $strings);
+
+			foreach (['title' => 'h[1-6]', 'subtitle' => 'p'] as $attribute => $tag) {
+				if (empty($parsedBlock['attrs'][$attribute]) && preg_match(sprintf('/<(%s)[^>]*class="[^"]*\bwp-block-yard-timeline-item-collapse__%s\b[^"]*"[^>]*>(.*?)<\/\1>/s', $tag, $attribute), $html, $found)) {
+					$parsedBlock['attrs'][$attribute] = $found[2];
+				}
+			}
+		}
+
+		$parsedBlock['innerHTML'] = '';
+		$parsedBlock['innerContent'] = array_map(fn ($chunk) => is_string($chunk) ? '' : $chunk, $parsedBlock['innerContent']);
+
+		return $parsedBlock;
 	}
 
 	public static function headingTag(?string $level): string
