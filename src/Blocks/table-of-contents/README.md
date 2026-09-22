@@ -23,12 +23,16 @@ This block displays a table of contents for the headings on a WordPress page. It
 
 Find a list of the options here: [TableOfContents options](https://github.com/yardinternet/table-of-contents/?tab=readme-ov-file#%EF%B8%8F-options)
 
-### Usage in a PHP template
+## Usage in Blade
 
-Want to use it in a PHP template? Use the `do_blocks` function:
-
-```php
-  {!! do_blocks(
-      '<!-- wp:yard/table-of-contents --><div class="wp-block-yard-table-of-contents"><div id="js-yard-table-of-contents" data-include-subheading="true"></div></div><!-- /wp:yard/table-of-contents -->',
-  ) !!}
+```blade
+<x-block-yard-table-of-contents :includeSubheading="true" contentSelector=".article" />
 ```
+
+### Attributes
+
+| Attribute           | Type      | Description                                                                   |
+| ------------------- | --------- | ----------------------------------------------------------------------------- |
+| `includeSubheading` | `boolean` | Also list the next heading level. Default `false`.                            |
+| `contentSelector`   | `string`  | Container to scan for headings. Overrides `window.yardTOC.contentSelector`.   |
+| `headingSelector`   | `string`  | Heading selector, e.g. `h2`. Overrides `window.yardTOC.headingSelector`.      |
