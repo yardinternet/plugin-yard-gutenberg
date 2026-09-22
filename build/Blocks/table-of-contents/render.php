@@ -12,4 +12,4 @@ foreach (['contentSelector' => 'data-content-selector', 'headingSelector' => 'da
 	}
 }
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>><div id="js-yard-table-of-contents"<?php echo $dataAttributes; ?> data-include-subheading="<?php echo Render::bool($attributes['includeSubheading'] ?? true); ?>"></div></div>
+<div <?php echo get_block_wrapper_attributes(); ?>><div id="js-yard-table-of-contents"<?php echo $dataAttributes; ?> data-include-subheading="<?php echo Render::bool($attributes['includeSubheading'] ?? false); ?>"></div></div>
