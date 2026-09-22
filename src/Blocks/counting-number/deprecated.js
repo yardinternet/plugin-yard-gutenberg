@@ -31,6 +31,22 @@ export default [
 				default: 2.5,
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			align: true,
+			color: {
+				background: true,
+				color: true,
+			},
+			contentRole: true,
+			spacing: {
+				margin: true,
+				padding: true,
+			},
+			typography: {
+				fontSize: true,
+			},
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const { hasThousandsSeparator, animationDuration, number } =
@@ -68,6 +84,22 @@ export default [
 			animationDuration: {
 				type: 'number',
 				default: 2.5,
+			},
+		},
+		apiVersion: 3,
+		supports: {
+			align: true,
+			color: {
+				background: true,
+				color: true,
+			},
+			contentRole: true,
+			spacing: {
+				margin: true,
+				padding: true,
+			},
+			typography: {
+				fontSize: true,
 			},
 		},
 		save: ( props ) => {

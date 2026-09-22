@@ -51,6 +51,12 @@ export default [
 				role: 'content',
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			anchor: true,
+			html: false,
+			reusable: false,
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const {
@@ -154,6 +160,12 @@ export default [
 				default: '',
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			anchor: true,
+			html: false,
+			reusable: false,
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const {
@@ -247,6 +259,12 @@ export default [
 				type: 'string',
 				default: '',
 			},
+		},
+		apiVersion: 3,
+		supports: {
+			anchor: true,
+			html: false,
+			reusable: false,
 		},
 		save: ( props ) => {
 			const { attributes } = props;

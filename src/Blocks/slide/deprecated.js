@@ -7,6 +7,12 @@ export default [
 	// v0.1.0 - Static save markup, before server-side rendering
 	{
 		attributes: {},
+		apiVersion: 3,
+		supports: {
+			contentRole: true,
+			html: false,
+			reusable: false,
+		},
 		save: () => {
 			const blockProps = useBlockProps.save( {
 				className: 'splide__slide',

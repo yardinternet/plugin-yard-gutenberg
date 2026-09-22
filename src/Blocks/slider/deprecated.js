@@ -16,6 +16,17 @@ export default [
 				default: null,
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			align: [ 'wide', 'full' ],
+			contentRole: true,
+			html: false,
+			listView: true,
+			spacing: {
+				margin: true,
+				padding: true,
+			},
+		},
 		save: () => {
 			const blockProps = useBlockProps.save( {
 				className: 'splide',

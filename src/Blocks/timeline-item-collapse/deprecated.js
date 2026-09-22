@@ -32,6 +32,14 @@ export default [
 				default: false,
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			color: {
+				background: true,
+				text: true,
+			},
+			html: false,
+		},
 		save: ( { attributes } ) => {
 			const { title, headingLevel, subtitle, isOpen, hasInnerBlocks } =
 				attributes;
