@@ -12,6 +12,20 @@ export default [
 				default: false,
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			align: [ 'wide', 'full' ],
+			contentRole: true,
+			html: false,
+			layout: {
+				default: {
+					type: 'flex',
+					orientation: 'vertical',
+				},
+				allowVerticalAlignment: false,
+			},
+			listView: true,
+		},
 		save: () => {
 			return (
 				<ul { ...useBlockProps.save() }>

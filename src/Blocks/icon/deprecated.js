@@ -21,6 +21,23 @@ export default [
 				default: '',
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			align: true,
+			ariaLabel: true,
+			color: {
+				background: true,
+				color: true,
+			},
+			contentRole: true,
+			spacing: {
+				margin: true,
+				padding: true,
+			},
+			typography: {
+				fontSize: true,
+			},
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const { icon } = attributes;
