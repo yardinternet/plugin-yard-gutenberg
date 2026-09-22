@@ -14,12 +14,8 @@ $wrapperAttributes = get_block_wrapper_attributes([
 	'data-number' => $number,
 ]);
 ?>
-<div <?php echo $wrapperAttributes; ?>>
-	<?php if ('' !== $prefix) : ?>
-		<span class="wp-block-yard-counting-number__prefix"><?php echo esc_html($prefix); ?></span>
-	<?php endif; ?>
-	<span class="wp-block-yard-counting-number__number"><?php echo esc_html($number); ?></span>
-	<?php if ('' !== $suffix) : ?>
-		<span class="wp-block-yard-counting-number__suffix"><?php echo esc_html($suffix); ?></span>
-	<?php endif; ?>
-</div>
+<div <?php echo $wrapperAttributes; ?>><?php
+echo '' !== $prefix ? sprintf('<span class="wp-block-yard-counting-number__prefix">%s</span>', esc_html($prefix)) : '';
+echo sprintf('<span class="wp-block-yard-counting-number__number">%s</span>', esc_html($number));
+echo '' !== $suffix ? sprintf('<span class="wp-block-yard-counting-number__suffix">%s</span>', esc_html($suffix)) : '';
+?></div>

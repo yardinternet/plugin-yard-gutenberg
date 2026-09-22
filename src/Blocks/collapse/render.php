@@ -13,4 +13,4 @@ if ($hasStructuredData) {
 	$wrapperAttributes['itemtype'] = 'https://schema.org/FAQPage';
 }
 ?>
-<div <?php echo get_block_wrapper_attributes($wrapperAttributes); ?>><?php echo Render::innerContent($block, $content); ?></div>
+<div <?php echo get_block_wrapper_attributes($wrapperAttributes); ?>><?php echo $content; ?></div>

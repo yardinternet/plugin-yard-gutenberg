@@ -9,4 +9,4 @@ $wrapperAttributes = get_block_wrapper_attributes([
 	'data-default-tab' => (string) ($attributes['defaultTab'] ?? ''),
 ]);
 ?>
-<div <?php echo $wrapperAttributes; ?>><?php echo Render::innerContent($block, $content); ?></div>
+<div <?php echo $wrapperAttributes; ?>><?php echo $content; ?></div>
