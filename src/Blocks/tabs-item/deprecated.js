@@ -33,6 +33,13 @@ export default [
 				type: 'string',
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			anchor: true,
+			contentRole: true,
+			html: false,
+			reusable: false,
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const { headingLevel, headingText, icon, id } = attributes;
@@ -94,6 +101,13 @@ export default [
 			id: {
 				type: 'string',
 			},
+		},
+		apiVersion: 3,
+		supports: {
+			anchor: true,
+			contentRole: true,
+			html: false,
+			reusable: false,
 		},
 		save: ( props ) => {
 			const { attributes } = props;

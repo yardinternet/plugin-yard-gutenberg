@@ -37,6 +37,18 @@ export default [
 				role: 'content',
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			align: false,
+			color: {
+				background: true,
+				text: true,
+			},
+			reusable: false,
+			typography: {
+				fontSize: true,
+			},
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const { listText, linkUrl, opensInNewTab } = attributes;
@@ -97,6 +109,18 @@ export default [
 			opensInNewTab: {
 				type: 'boolean',
 				default: false,
+			},
+		},
+		apiVersion: 3,
+		supports: {
+			align: false,
+			color: {
+				background: true,
+				text: true,
+			},
+			reusable: false,
+			typography: {
+				fontSize: true,
 			},
 		},
 		save: ( props ) => {

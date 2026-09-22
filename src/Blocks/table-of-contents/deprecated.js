@@ -34,6 +34,12 @@ export default [
 	// v0.2.0 - Static save markup, before server-side rendering
 	{
 		attributes: metadata.attributes,
+		apiVersion: 3,
+		supports: {
+			html: false,
+			multiple: false,
+			reusable: false,
+		},
 		save,
 	},
 	// v0.1.0 - includeSubheading defaulted to true
@@ -44,6 +50,12 @@ export default [
 				type: 'boolean',
 				default: true,
 			},
+		},
+		apiVersion: 3,
+		supports: {
+			html: false,
+			multiple: false,
+			reusable: false,
 		},
 		save,
 	},

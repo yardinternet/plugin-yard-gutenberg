@@ -26,6 +26,13 @@ export default [
 				default: 'h3',
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			html: false,
+			align: [ 'wide', 'full' ],
+			contentRole: true,
+			listView: true,
+		},
 		save( { attributes } ) {
 			const { defaultTab } = attributes;
 			return (
@@ -46,6 +53,13 @@ export default [
 				type: 'string',
 				default: '',
 			},
+		},
+		apiVersion: 3,
+		supports: {
+			html: false,
+			align: [ 'wide', 'full' ],
+			contentRole: true,
+			listView: true,
 		},
 		save( { attributes } ) {
 			const { defaultTab } = attributes;

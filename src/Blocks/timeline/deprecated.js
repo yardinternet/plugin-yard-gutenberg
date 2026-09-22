@@ -16,6 +16,17 @@ export default [
 				default: 'h3',
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			align: [ 'wide' ],
+			color: {
+				background: true,
+				text: true,
+			},
+			contentRole: true,
+			html: false,
+			listView: true,
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const { isOrderedList } = attributes;

@@ -20,6 +20,13 @@ export default [
 				default: true,
 			},
 		},
+		apiVersion: 3,
+		supports: {
+			align: [ 'wide', 'full' ],
+			contentRole: true,
+			listView: true,
+			html: false,
+		},
 		save: ( props ) => {
 			const { attributes } = props;
 			const { hasStructuredData, showMultiple } = attributes;
