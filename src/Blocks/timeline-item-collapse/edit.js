@@ -4,7 +4,6 @@
 import { InnerBlocks, useBlockProps, RichText } from '@wordpress/block-editor';
 import { applyFilters } from '@wordpress/hooks';
 import { useEffect, useState } from '@wordpress/element';
-import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -19,24 +18,16 @@ import Inspector from './components/inspector';
 import { TIMELINE_ITEM_ALLOWED_BLOCKS } from '../constants';
 
 const Edit = ( props ) => {
-	const { attributes, setAttributes, clientId } = props;
+	const { attributes, setAttributes } = props;
 	const { title, headingLevel, subtitle, isOpen } = attributes;
 	const [ isOpenEditorState, setIsOpenEditorState ] = useState( isOpen );
 
-	// The template is intentionally left empty. If users do not add blocks inside the collapse block, hasInnerBlocks will be false. This ensures the title and subtitle are rendered outside the details tag, preventing empty details tags on the frontend when users only want to display the title and subtitle.
+	// Empty template: without inner blocks render.php puts title/subtitle outside <details>.
 	const TEMPLATE = applyFilters( 'yard.timeline-item-collapse-template', [] );
 
 	const ALLOWED_BLOCKS = applyFilters(
 		'yard.timeline-item-collapse-allowed-blocks',
 		TIMELINE_ITEM_ALLOWED_BLOCKS
-	);
-
-	const hasInnerBlocks = useSelect(
-		( select ) => {
-			const block = select( 'core/block-editor' ).getBlock( clientId );
-			return block?.innerBlocks.length > 0;
-		},
-		[ clientId ]
 	);
 
 	const { parentAttributes } = useParentBlock();
@@ -46,10 +37,6 @@ const Edit = ( props ) => {
 			headingLevel: parentAttributes.headingLevel ?? 'h3',
 		} );
 	}, [ setAttributes, parentAttributes.headingLevel ] );
-
-	useEffect( () => {
-		setAttributes( { hasInnerBlocks } );
-	}, [ hasInnerBlocks, setAttributes ] );
 
 	const handleSummaryClick = ( event ) => {
 		event.preventDefault();

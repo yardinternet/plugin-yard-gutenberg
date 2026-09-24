@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+import { InnerBlocks } from '@wordpress/block-editor';
 import { registerBlockType } from '@wordpress/blocks';
 
 /**
@@ -10,7 +11,6 @@ import deprecated from './deprecated';
 import edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
-import save from './save';
 import transforms from './transforms';
 import './style.scss';
 
@@ -18,7 +18,7 @@ registerBlockType( metadata.name, {
 	deprecated,
 	edit,
 	icon,
-	save,
+	save: () => <InnerBlocks.Content />,
 	transforms,
 	providesContext: {
 		'yard/tabs-current-tab': 'currentTab',

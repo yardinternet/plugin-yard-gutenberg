@@ -3,7 +3,83 @@
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 
+/**
+ * External dependencies
+ */
+import { Icon } from '@yardinternet/gutenberg-components';
+
 export default [
+	// v0.1.1 - Static save markup, before server-side rendering
+	{
+		attributes: {
+			icon: {
+				type: 'string',
+				default: 'fa-classic fa-light fa-envelope',
+				role: 'content',
+			},
+			iconAltText: {
+				type: 'string',
+				default: '',
+			},
+			listText: {
+				type: 'string',
+				default: '',
+				role: 'content',
+			},
+			linkUrl: {
+				type: 'string',
+				default: '',
+				role: 'content',
+			},
+			opensInNewTab: {
+				type: 'boolean',
+				default: false,
+				role: 'content',
+			},
+		},
+		apiVersion: 3,
+		supports: {
+			align: false,
+			color: {
+				background: true,
+				text: true,
+			},
+			reusable: false,
+			typography: {
+				fontSize: true,
+			},
+		},
+		save: ( props ) => {
+			const { attributes } = props;
+			const { listText, linkUrl, opensInNewTab } = attributes;
+
+			const linkProps = opensInNewTab
+				? { target: '_blank', rel: 'noopener noreferrer' }
+				: {};
+
+			return (
+				<li { ...useBlockProps.save() }>
+					<Icon { ...props } />
+
+					{ linkUrl ? (
+						<a
+							href={ linkUrl }
+							{ ...linkProps }
+							className="wp-block-yard-iconlist-item__link"
+						>
+							<RichText.Content value={ listText } />
+						</a>
+					) : (
+						<RichText.Content
+							className="wp-block-yard-iconlist-item__text"
+							tagName="span"
+							value={ listText }
+						/>
+					) }
+				</li>
+			);
+		},
+	},
 	// v0.1.0 - Remove iconColor attribute (and unused linkText attribute)
 	{
 		attributes: {
@@ -33,6 +109,18 @@ export default [
 			opensInNewTab: {
 				type: 'boolean',
 				default: false,
+			},
+		},
+		apiVersion: 3,
+		supports: {
+			align: false,
+			color: {
+				background: true,
+				text: true,
+			},
+			reusable: false,
+			typography: {
+				fontSize: true,
 			},
 		},
 		save: ( props ) => {

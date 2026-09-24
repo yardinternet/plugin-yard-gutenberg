@@ -13,5 +13,4 @@ import metadata from './block.json';
 registerBlockType( metadata.name, {
 	edit,
 	icon,
-	save: () => null,
 } );
