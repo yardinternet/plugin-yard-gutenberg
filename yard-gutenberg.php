@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Plugin Name:       Yard | Gutenberg
  * Description:       A collection of blocks for the WordPress Gutenberg editor.
- * Version:           1.8.0
+ * Version:           1.8.1
  * Author:            Yard | Digital Agency
  * Author URI:        https://www.yard.nl/
  * License:           MIT License
