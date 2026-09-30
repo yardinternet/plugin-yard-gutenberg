@@ -25,6 +25,17 @@ final class Render
 		);
 	}
 
+
+	public static function headingTag(?string $level): string
+	{
+		return in_array($level, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'], true) ? $level : 'h3';
+	}
+
+	public static function bool($value): string
+	{
+		return $value ? 'true' : 'false';
+	}
+
 	/**
 	 * Drops the pre-SSR save markup so `$content` is not wrapped twice:
 	 * `<!-- wp:yard/collapse --><div class="wp-block-yard-collapse">…<!-- /wp:yard/collapse -->`
@@ -36,6 +47,13 @@ final class Render
 		$name = $parsedBlock['blockName'] ?? '';
 
 		if (0 !== strpos($name, 'yard/')) {
+			return $parsedBlock;
+		}
+
+		// Unregistered (excluded via `yard::gutenberg/allowed-blocks`) or static blocks can only output their saved markup
+		$blockType = \WP_Block_Type_Registry::get_instance()->get_registered($name);
+
+		if (! $blockType || ! $blockType->is_dynamic()) {
 			return $parsedBlock;
 		}
 
@@ -53,7 +71,7 @@ final class Render
 		if ('yard/timeline-item-collapse' === $name) {
 			$html = implode('', $strings);
 
-			foreach (['title' => 'h[1-6]', 'subtitle' => 'p'] as $attribute => $tag) {
+			foreach (['title' => 'h[1-6]|div', 'subtitle' => 'p'] as $attribute => $tag) {
 				if (empty($parsedBlock['attrs'][$attribute]) && preg_match(sprintf('/<(%s)[^>]*class="[^"]*\bwp-block-yard-timeline-item-collapse__%s\b[^"]*"[^>]*>(.*?)<\/\1>/s', $tag, $attribute), $html, $found)) {
 					$parsedBlock['attrs'][$attribute] = $found[2];
 				}
@@ -64,15 +82,5 @@ final class Render
 		$parsedBlock['innerContent'] = array_map(fn ($chunk) => is_string($chunk) ? '' : $chunk, $parsedBlock['innerContent']);
 
 		return $parsedBlock;
-	}
-
-	public static function headingTag(?string $level): string
-	{
-		return in_array($level, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'], true) ? $level : 'h3';
-	}
-
-	public static function bool($value): string
-	{
-		return $value ? 'true' : 'false';
 	}
 }
