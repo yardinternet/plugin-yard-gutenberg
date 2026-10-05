@@ -10,6 +10,7 @@ import deprecated from './deprecated';
 import edit from './edit';
 import icon from './icon';
 import metadata from './block.json';
+import './heading-extension';
 
 registerBlockType( metadata.name, {
 	deprecated,
