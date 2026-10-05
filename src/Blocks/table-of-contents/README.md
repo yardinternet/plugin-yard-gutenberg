@@ -23,6 +23,12 @@ This block displays a table of contents for the headings on a WordPress page. It
 
 Find a list of the options here: [TableOfContents options](https://github.com/yardinternet/table-of-contents/?tab=readme-ov-file#%EF%B8%8F-options)
 
+## Heading options
+
+The `core/heading` block gets an "Inhoudsopgave" panel to exclude a heading from the table of contents or override its text.
+
+If a theme already adds these attributes, the plugin's panel is skipped.
+
 ## Usage in Blade
 
 ```blade
