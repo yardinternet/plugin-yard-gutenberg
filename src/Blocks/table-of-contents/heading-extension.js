@@ -100,24 +100,23 @@ const addTOCControls = createHigherOrderComponent( ( BlockEdit ) => {
 const addTOCEditorChanges = createHigherOrderComponent( ( BlockListBlock ) => {
 	return ( props ) => {
 		const {
-			attributes: { excludeFromTOC, overrideTOCText },
+			attributes: { excludeFromTOC },
 			className,
 			name,
 		} = props;
 
-		if ( name !== 'core/heading' || isExtendedElsewhere ) {
+		if (
+			name !== 'core/heading' ||
+			isExtendedElsewhere ||
+			! excludeFromTOC
+		) {
 			return <BlockListBlock { ...props } />;
 		}
 
 		return (
 			<BlockListBlock
 				{ ...props }
-				className={
-					excludeFromTOC
-						? `${ className } yard-toc-is-excluded`
-						: className
-				}
-				data-toc-text={ overrideTOCText }
+				className={ `${ className ?? '' } yard-toc-is-excluded`.trim() }
 			/>
 		);
 	};
@@ -137,15 +136,17 @@ const addTOCSaveChanges = ( props, blockType, attributes ) => {
 	const { className } = props;
 
 	if ( attributes.excludeFromTOC ) {
-		return Object.assign( props, {
-			className: className + ' yard-toc-is-excluded',
-		} );
+		return {
+			...props,
+			className: `${ className ?? '' } yard-toc-is-excluded`.trim(),
+		};
 	}
 
 	if ( attributes.overrideTOCText ) {
-		return Object.assign( props, {
+		return {
+			...props,
 			'data-yard-toc-overwrite-heading': attributes.overrideTOCText,
-		} );
+		};
 	}
 
 	return props;
