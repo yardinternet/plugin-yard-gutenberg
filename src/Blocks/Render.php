@@ -83,4 +83,31 @@ final class Render
 
 		return $parsedBlock;
 	}
+
+	/**
+	 * Block recovery on legacy markup copies the generated root classes into `className`,
+	 * e.g. tabs-item ends up with `wp-block-yard-tabs-item__heading` on its panel.
+	 */
+	public static function stripGeneratedClassName(array $parsedBlock): array
+	{
+		$yardPrefix = 'yard/';
+		$name = $parsedBlock['blockName'] ?? '';
+		$className = $parsedBlock['attrs']['className'] ?? '';
+
+		if (0 !== strpos($name, $yardPrefix) || '' === $className) {
+			return $parsedBlock;
+		}
+
+		$blockClass = 'wp-block-' . str_replace('/', '-', $name);
+		$whitespace = '/\s+/';
+		// Matches `wp-block-yard-tabs-item` and `wp-block-yard-tabs-item__*`
+		$generatedClass = '/^' . preg_quote($blockClass, '/') . '(__\S+)?$/';
+
+		$classes = preg_split($whitespace, trim($className));
+		$customClasses = preg_grep($generatedClass, $classes, PREG_GREP_INVERT);
+
+		$parsedBlock['attrs']['className'] = implode(' ', $customClasses);
+
+		return $parsedBlock;
+	}
 }
