@@ -456,7 +456,7 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'yard/tabs-item',
-		'version' => '0.2.0',
+		'version' => '0.2.1',
 		'title' => 'Tabblad',
 		'category' => 'yard',
 		'description' => 'Tabblad item.',
