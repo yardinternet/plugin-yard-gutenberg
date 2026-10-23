@@ -12,6 +12,7 @@ class PluginServiceProvider
 
 		\add_filter('block_categories_all', [$this, 'addBlockCategory']);
 		\add_filter('render_block_data', [Blocks\Render::class, 'stripLegacySave']);
+		\add_filter('render_block_data', [Blocks\Render::class, 'stripGeneratedClassName']);
 		\add_action('init', [$this, 'registerBlocks']);
 
 		\add_action('enqueue_block_editor_assets', function () {
